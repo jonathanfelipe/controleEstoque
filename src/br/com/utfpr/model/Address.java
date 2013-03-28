@@ -17,26 +17,50 @@ public class Address {
     private String country;
     private int number;
 
+    /**
+     * 
+     * @return the zipcode 
+     */
     public String getZipCode() {
         return zipCode;
     }
 
+    /**
+     *
+     * @param zipCode
+     */
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     *
+     * @param street
+     */
     public void setStreet(String street) {
         this.street = street;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDistrict() {
         return district;
     }
 
+    /**
+     *
+     * @param district
+     */
     public void setDistrict(String district) {
         this.district = district;
     }

@@ -18,38 +18,74 @@ public class Contact {
     private ArrayList<String> cellphone;
     private ArrayList<String> email;
 
+    /**
+     *
+     * @return
+     */
     public int getCod() {
         return cod;
     }
 
+    /**
+     *
+     * @param cod
+     */
     public void setCod(int cod) {
         this.cod = cod;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCodContact() {
         return codContact;
     }
 
+    /**
+     *
+     * @param codContact
+     */
     public void setCodContact(int codContact) {
         this.codContact = codContact;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<String> getTelephone() {
         return telephone;
     }
 
+    /**
+     *
+     * @param telephone
+     */
     public void setTelephone(ArrayList<String> telephone) {
         this.telephone = telephone;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<String> getCellphone() {
         return cellphone;
     }
 
+    /**
+     *
+     * @param cellphone
+     */
     public void setCellphone(ArrayList<String> cellphone) {
         this.cellphone = cellphone;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<String> getEmail() {
         return email;
     }
