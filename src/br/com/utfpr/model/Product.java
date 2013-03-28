@@ -6,8 +6,8 @@ import java.util.logging.Logger;
  *
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
-public class Produto {
-    private static final Logger LOG = Logger.getLogger(Produto.class.getName());
+public class Product {
+    private static final Logger LOG = Logger.getLogger(Product.class.getName());
 
     private int codProduct;
     private int codProvider;
