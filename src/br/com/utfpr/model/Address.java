@@ -7,8 +7,8 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Address {
-    private static final Logger LOG = Logger.getLogger(Address.class.getName());
 
+    private static final Logger LOG = Logger.getLogger(Address.class.getName());
     private String zipCode;
     private String street;
     private String district;
@@ -18,8 +18,8 @@ public class Address {
     private int number;
 
     /**
-     * 
-     * @return the zipcode 
+     *
+     * @return the zipcode
      */
     public String getZipCode() {
         return zipCode;

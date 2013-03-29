@@ -7,12 +7,13 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Client {
-    private static final Logger LOG = Logger.getLogger(Client.class.getName());
 
+    private static final Logger LOG = Logger.getLogger(Client.class.getName());
+    private int client_id;
     private String name;
-    private String SSN;
+    private String ssn;
     private Address addr;
-    private int codClient;
+    private Contact cont;
 
     /**
      *
@@ -34,16 +35,16 @@ public class Client {
      *
      * @return
      */
-    public String getSSN() {
-        return SSN;
+    public String getSsn() {
+        return ssn;
     }
 
     /**
      *
-     * @param SSN
+     * @param ssn
      */
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     /**
@@ -66,17 +67,31 @@ public class Client {
      *
      * @return
      */
-    public int getCodClient() {
-        return codClient;
+    public Contact getCont() {
+        return cont;
     }
 
     /**
      *
-     * @param codClient
+     * @param cont
      */
-    public void setCodClient(int codClient) {
-        this.codClient = codClient;
+    public void setCont(Contact cont) {
+        this.cont = cont;
     }
-    
-    
+
+    /**
+     *
+     * @return
+     */
+    public int getClient_id() {
+        return client_id;
+    }
+
+    /**
+     *
+     * @param client_id
+     */
+    public void setClient_id(int client_id) {
+        this.client_id = client_id;
+    }
 }
