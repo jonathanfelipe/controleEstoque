@@ -8,12 +8,12 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Contact {
-    
     private static final Logger LOG = Logger.getLogger(Contact.class.getName());
+
     //codigo (chave primaria) do sujeito que tem esse contato como objeto
-    private int id;
+    private int cod;
     //chave primaria do objeto contact no db
-    private int contact_id;
+    private int codContact;
     private ArrayList<String> telephone;
     private ArrayList<String> cellphone;
     private ArrayList<String> email;
@@ -22,32 +22,32 @@ public class Contact {
      *
      * @return
      */
-    public int getId() {
-        return id;
+    public int getCod() {
+        return cod;
     }
 
     /**
      *
-     * @param id
+     * @param cod
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
     /**
      *
      * @return
      */
-    public int getContact_id() {
-        return contact_id;
+    public int getCodContact() {
+        return codContact;
     }
 
     /**
      *
-     * @param contact_id
+     * @param codContact
      */
-    public void setContact_id(int contact_id) {
-        this.contact_id = contact_id;
+    public void setCodContact(int codContact) {
+        this.codContact = codContact;
     }
 
     /**
@@ -65,10 +65,6 @@ public class Contact {
     public void setTelephone(ArrayList<String> telephone) {
         this.telephone = telephone;
     }
-    
-    public void addTelephone(String telephone) {
-        this.telephone.add(telephone);
-    }
 
     /**
      *
@@ -84,16 +80,6 @@ public class Contact {
      */
     public void setCellphone(ArrayList<String> cellphone) {
         this.cellphone = cellphone;
-    }
-
-    /**
-     *
-     * @param cellphone
-     */
-    public void addCellphone(String cellphone) {
-        this.cellphone.add(cellphone);
-        
-        
     }
 
     /**

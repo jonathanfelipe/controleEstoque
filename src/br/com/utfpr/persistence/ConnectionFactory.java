@@ -1,10 +1,8 @@
 package br.com.utfpr.persistence;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
-
 /**
  *
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
@@ -18,8 +16,7 @@ public class ConnectionFactory {
     private static final Logger LOG = Logger.getLogger(ConnectionFactory.class.getName());
 
     /**
-     * this method will open a connection with the database and return to DAO
-     *
+     *  this method will open a connection with the database and return to DAO 
      * @return the connection with the database
      * @throws ClassNotFoundException
      * @throws SQLException

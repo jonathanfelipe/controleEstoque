@@ -7,10 +7,10 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Product {
-
     private static final Logger LOG = Logger.getLogger(Product.class.getName());
-    private int product_id;
-    private int provider_id;
+
+    private int codProduct;
+    private int codProvider;
     private double price;
     private int quantity;
     private String name;
@@ -20,32 +20,32 @@ public class Product {
      *
      * @return
      */
-    public int getProduct_id() {
-        return product_id;
+    public int getCodProduct() {
+        return codProduct;
     }
 
     /**
      *
-     * @param product_id
+     * @param codProduct
      */
-    public void setProduct_id(int Product_id) {
-        this.product_id = Product_id;
+    public void setCodProduct(int codProduct) {
+        this.codProduct = codProduct;
     }
 
     /**
      *
      * @return
      */
-    public int getProvider_id() {
-        return provider_id;
+    public int getCodProvider() {
+        return codProvider;
     }
 
     /**
      *
-     * @param provider_id
+     * @param codProvider
      */
-    public void setProvider_id(int Provider_id) {
-        this.provider_id = Provider_id;
+    public void setCodProvider(int codProvider) {
+        this.codProvider = codProvider;
     }
 
     /**
