@@ -11,8 +11,8 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Dao {
-
     private static final Logger LOG = Logger.getLogger(Dao.class.getName());
+
     /**
      *
      */

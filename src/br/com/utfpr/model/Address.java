@@ -9,9 +9,6 @@ import java.util.logging.Logger;
 public class Address {
 
     private static final Logger LOG = Logger.getLogger(Address.class.getName());
-    //chave estrangeira identificando de quem e esse endereco
-    private int id;
-    private int address_id;
     private String zipCode;
     private String street;
     private String district;
@@ -130,37 +127,5 @@ public class Address {
      */
     public void setNumber(int number) {
         this.number = number;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getAddress_id() {
-        return address_id;
-    }
-
-    /**
-     *
-     * @param address_id
-     */
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
     }
 }

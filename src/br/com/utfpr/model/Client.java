@@ -11,7 +11,7 @@ public class Client {
     private static final Logger LOG = Logger.getLogger(Client.class.getName());
     private int client_id;
     private String name;
-    private String SSN;
+    private String ssn;
     private Address addr;
     private Contact cont;
 
@@ -35,16 +35,16 @@ public class Client {
      *
      * @return
      */
-    public String getSSN() {
-        return SSN;
+    public String getSsn() {
+        return ssn;
     }
 
     /**
      *
-     * @param SSN
+     * @param ssn
      */
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     /**

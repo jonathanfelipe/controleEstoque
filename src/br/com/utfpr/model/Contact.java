@@ -10,29 +10,11 @@ import java.util.logging.Logger;
 public class Contact {
     
     private static final Logger LOG = Logger.getLogger(Contact.class.getName());
-    //codigo (chave primaria) do sujeito que tem esse contato como objeto
-    private int id;
     //chave primaria do objeto contact no db
     private int contact_id;
     private ArrayList<String> telephone;
     private ArrayList<String> cellphone;
     private ArrayList<String> email;
-
-    /**
-     *
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
 
     /**
      *
@@ -85,15 +67,9 @@ public class Contact {
     public void setCellphone(ArrayList<String> cellphone) {
         this.cellphone = cellphone;
     }
-
-    /**
-     *
-     * @param cellphone
-     */
+    
     public void addCellphone(String cellphone) {
         this.cellphone.add(cellphone);
-        
-        
     }
 
     /**

@@ -28,8 +28,8 @@ public class Product {
      *
      * @param product_id
      */
-    public void setProduct_id(int Product_id) {
-        this.product_id = Product_id;
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
     }
 
     /**
@@ -44,8 +44,8 @@ public class Product {
      *
      * @param provider_id
      */
-    public void setProvider_id(int Provider_id) {
-        this.provider_id = Provider_id;
+    public void setProvider_id(int provider_id) {
+        this.provider_id = provider_id;
     }
 
     /**

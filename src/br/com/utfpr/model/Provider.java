@@ -8,35 +8,24 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Provider {
-    
+
     private static final Logger LOG = Logger.getLogger(Provider.class.getName());
     private int provider_id;
     private String name;
     private Address addr;
     private Contact cont;
     private int legalPersonNumber;
+    //tabela separada many-to-many
     private ArrayList<Integer> products_id;
-    
-    /**
-     *
-     * @return
-     */
+
     public int getProvider_id() {
         return provider_id;
     }
-    
-    /**
-     *
-     * @param provider_id
-     */
+
     public void setProvider_id(int provider_id) {
         this.provider_id = provider_id;
     }
-    
-    /**
-     *
-     * @return
-     */
+
     public String getName() {
         return name;
     }
