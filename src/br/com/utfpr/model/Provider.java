@@ -23,9 +23,15 @@ public class Provider {
     }
 
     public void setProvider_id(int provider_id) {
-        this.provider_id = provider_id;
+        if (provider_id > 0) {
+            this.provider_id = provider_id;
+        }
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
@@ -35,7 +41,9 @@ public class Provider {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        if (!name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     /**
@@ -51,7 +59,9 @@ public class Provider {
      * @param legalPersonNumber
      */
     public void setLegalPersonNumber(int legalPersonNumber) {
-        this.legalPersonNumber = legalPersonNumber;
+        if (legalPersonNumber > 0) {
+            this.legalPersonNumber = legalPersonNumber;
+        }
     }
 
     /**
@@ -67,7 +77,9 @@ public class Provider {
      * @param products_id
      */
     public void setProducts_id(ArrayList<Integer> products_id) {
-        this.products_id = products_id;
+        if (products_id != null) {
+            this.products_id = products_id;
+        }
     }
 
     /**
@@ -75,7 +87,9 @@ public class Provider {
      * @param product_id
      */
     public void addProduct_id(int product_id) {
-        this.products_id.add(product_id);
+        if (product_id > 0) {
+            this.products_id.add(product_id);
+        }
     }
 
     /**
@@ -91,7 +105,9 @@ public class Provider {
      * @param addr
      */
     public void setAddr(Address addr) {
-        this.addr = addr;
+        if (addr != null) {
+            this.addr = addr;
+        }
     }
 
     /**
@@ -107,6 +123,8 @@ public class Provider {
      * @param cont
      */
     public void setCont(Contact cont) {
-        this.cont = cont;
+        if (cont != null) {
+            this.cont = cont;
+        }
     }
 }
