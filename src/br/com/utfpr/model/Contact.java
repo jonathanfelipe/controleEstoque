@@ -52,6 +52,10 @@ public class Contact {
         }
     }
 
+    /**
+     *
+     * @param telephone
+     */
     public void addTelephone(String telephone) {
         if (!telephone.isEmpty()) {
             this.telephone.add(telephone);
@@ -74,6 +78,10 @@ public class Contact {
         this.cellphone = cellphone;
     }
 
+    /**
+     *
+     * @param cellphone
+     */
     public void addCellphone(String cellphone) {
         if (!cellphone.isEmpty()) {
             this.cellphone.add(cellphone);
@@ -107,5 +115,4 @@ public class Contact {
             this.email.add(email);
         }
     }
-
 }

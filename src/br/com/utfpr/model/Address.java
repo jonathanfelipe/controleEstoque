@@ -120,7 +120,7 @@ public class Address {
      * @param country
      */
     public void setCountry(String country) {
-        if(!country.isEmpty()) {
+        if (!country.isEmpty()) {
             this.country = country;
         }
     }
@@ -138,7 +138,8 @@ public class Address {
      * @param number
      */
     public void setNumber(int number) {
-        if(number >= 0){
-        this.number = number;
-    }}
+        if (number >= 0) {
+            this.number = number;
+        }
+    }
 }

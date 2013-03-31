@@ -18,10 +18,18 @@ public class Provider {
     //tabela separada many-to-many
     private ArrayList<Integer> products_id;
 
+    /**
+     *
+     * @return
+     */
     public int getProvider_id() {
         return provider_id;
     }
 
+    /**
+     *
+     * @param provider_id
+     */
     public void setProvider_id(int provider_id) {
         if (provider_id > 0) {
             this.provider_id = provider_id;
