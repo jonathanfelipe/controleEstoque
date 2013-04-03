@@ -28,7 +28,10 @@ public class Client {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+
+        if (!name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     /**
@@ -44,7 +47,9 @@ public class Client {
      * @param ssn
      */
     public void setSsn(String ssn) {
-        this.ssn = ssn;
+        if (!ssn.isEmpty()) {
+            this.ssn = ssn;
+        }
     }
 
     /**
@@ -60,7 +65,9 @@ public class Client {
      * @param addr
      */
     public void setAddr(Address addr) {
-        this.addr = addr;
+        if (addr != null) {
+            this.addr = addr;
+        }
     }
 
     /**
@@ -76,7 +83,9 @@ public class Client {
      * @param cont
      */
     public void setCont(Contact cont) {
-        this.cont = cont;
+        if (cont != null) {
+            this.cont = cont;
+        }
     }
 
     /**
@@ -92,6 +101,8 @@ public class Client {
      * @param client_id
      */
     public void setClient_id(int client_id) {
-        this.client_id = client_id;
+        if (client_id > 0) {
+            this.client_id = client_id;
+        }
     }
 }

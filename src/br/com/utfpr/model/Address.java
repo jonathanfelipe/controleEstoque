@@ -30,7 +30,9 @@ public class Address {
      * @param zipCode
      */
     public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+        if (!zipCode.isEmpty()) {
+            this.zipCode = zipCode;
+        }
     }
 
     /**
@@ -46,7 +48,9 @@ public class Address {
      * @param street
      */
     public void setStreet(String street) {
-        this.street = street;
+        if (!street.isEmpty()) {
+            this.street = street;
+        }
     }
 
     /**
@@ -62,7 +66,9 @@ public class Address {
      * @param district
      */
     public void setDistrict(String district) {
-        this.district = district;
+        if (!district.isEmpty()) {
+            this.district = district;
+        }
     }
 
     /**
@@ -78,7 +84,9 @@ public class Address {
      * @param city
      */
     public void setCity(String city) {
-        this.city = city;
+        if (!city.isEmpty()) {
+            this.city = city;
+        }
     }
 
     /**
@@ -94,7 +102,9 @@ public class Address {
      * @param state
      */
     public void setState(String state) {
-        this.state = state;
+        if (!state.isEmpty()) {
+            this.state = state;
+        }
     }
 
     /**
@@ -110,7 +120,9 @@ public class Address {
      * @param country
      */
     public void setCountry(String country) {
-        this.country = country;
+        if (!country.isEmpty()) {
+            this.country = country;
+        }
     }
 
     /**
@@ -126,6 +138,8 @@ public class Address {
      * @param number
      */
     public void setNumber(int number) {
-        this.number = number;
+        if (number >= 0) {
+            this.number = number;
+        }
     }
 }

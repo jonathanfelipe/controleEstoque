@@ -10,8 +10,8 @@ public class Product {
 
     private static final Logger LOG = Logger.getLogger(Product.class.getName());
     private int product_id;
-    private int provider_id;
     private double price;
+    private double cost;
     private int quantity;
     private String name;
     private String description;
@@ -29,23 +29,9 @@ public class Product {
      * @param product_id
      */
     public void setProduct_id(int product_id) {
-        this.product_id = product_id;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getProvider_id() {
-        return provider_id;
-    }
-
-    /**
-     *
-     * @param provider_id
-     */
-    public void setProvider_id(int provider_id) {
-        this.provider_id = provider_id;
+        if (product_id > 0) {
+            this.product_id = product_id;
+        }
     }
 
     /**
@@ -61,7 +47,10 @@ public class Product {
      * @param price
      */
     public void setPrice(double price) {
-        this.price = price;
+        if (price > 0.0) {
+            this.price = price;
+        }
+
     }
 
     /**
@@ -77,6 +66,7 @@ public class Product {
      * @param quantity
      */
     public void setQuantity(int quantity) {
+
         this.quantity = quantity;
     }
 
@@ -93,7 +83,9 @@ public class Product {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        if (!name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     /**
@@ -109,6 +101,24 @@ public class Product {
      * @param description
      */
     public void setDescription(String description) {
-        this.description = description;
+        if (!description.isEmpty()) {
+            this.description = description;
+        }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public double getCost() {
+        return cost;
+    }
+
+    /**
+     *
+     * @param cost
+     */
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }

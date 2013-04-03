@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Contact {
-    
+
     private static final Logger LOG = Logger.getLogger(Contact.class.getName());
     //chave primaria do objeto contact no db
     private int contact_id;
@@ -29,7 +29,9 @@ public class Contact {
      * @param contact_id
      */
     public void setContact_id(int contact_id) {
-        this.contact_id = contact_id;
+        if (contact_id > 0) {
+            this.contact_id = contact_id;
+        }
     }
 
     /**
@@ -45,11 +47,19 @@ public class Contact {
      * @param telephone
      */
     public void setTelephone(ArrayList<String> telephone) {
-        this.telephone = telephone;
+        if (telephone != null) {
+            this.telephone = telephone;
+        }
     }
-    
+
+    /**
+     *
+     * @param telephone
+     */
     public void addTelephone(String telephone) {
-        this.telephone.add(telephone);
+        if (!telephone.isEmpty()) {
+            this.telephone.add(telephone);
+        }
     }
 
     /**
@@ -67,9 +77,15 @@ public class Contact {
     public void setCellphone(ArrayList<String> cellphone) {
         this.cellphone = cellphone;
     }
-    
+
+    /**
+     *
+     * @param cellphone
+     */
     public void addCellphone(String cellphone) {
-        this.cellphone.add(cellphone);
+        if (!cellphone.isEmpty()) {
+            this.cellphone.add(cellphone);
+        }
     }
 
     /**
@@ -85,6 +101,18 @@ public class Contact {
      * @param email
      */
     public void setEmail(ArrayList<String> email) {
-        this.email = email;
+        if (email != null) {
+            this.email = email;
+        }
+    }
+
+    /**
+     *
+     * @param email
+     */
+    public void addEmail(String email) {
+        if (!email.isEmpty()) {
+            this.email.add(email);
+        }
     }
 }
