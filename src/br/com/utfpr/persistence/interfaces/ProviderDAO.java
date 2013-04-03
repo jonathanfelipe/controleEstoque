@@ -4,7 +4,7 @@
  */
 package br.com.utfpr.persistence.interfaces;
 
-import br.com.utfpr.model.Provider;
+import br.com.utfpr.model.Supplier;
 import javax.sql.RowSet;
 
 /**
@@ -13,13 +13,33 @@ import javax.sql.RowSet;
  */
 public interface ProviderDAO {
 
-    public int insertProvider(Provider prov);
+    /**
+     *
+     * @param prov
+     * @return
+     */
+    public int insertProvider(Supplier prov);
 
-    public boolean deleteProvider(Provider prov);
+    /**
+     *
+     * @param prov
+     * @return
+     */
+    public boolean deleteProvider(Supplier prov);
 
-    public Provider findProvider(Provider prov);
+    /**
+     *
+     * @param prov
+     * @return
+     */
+    public Supplier findProvider(Supplier prov);
 
-    public boolean updateProvider(Provider prov);
+    /**
+     *
+     * @param prov
+     * @return
+     */
+    public boolean updateProvider(Supplier prov);
 
     /**
      *

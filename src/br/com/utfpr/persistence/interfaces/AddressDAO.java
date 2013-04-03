@@ -13,12 +13,32 @@ import javax.sql.RowSet;
  */
 public interface AddressDAO {
 
+    /**
+     *
+     * @param address
+     * @return
+     */
     public int insertAddress(Address address);
 
+    /**
+     *
+     * @param address
+     * @return
+     */
     public boolean deleteAddress(Address address);
 
+    /**
+     *
+     * @param address
+     * @return
+     */
     public Address findAddress(Address address);
 
+    /**
+     *
+     * @param address
+     * @return
+     */
     public boolean updateAddress(Address address);
 
     /**

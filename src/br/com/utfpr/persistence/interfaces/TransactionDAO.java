@@ -13,8 +13,18 @@ import javax.sql.RowSet;
  */
 public interface TransactionDAO {
 
+    /**
+     *
+     * @param tran
+     * @return
+     */
     public int insertTransaction(Transaction tran);
 
+    /**
+     *
+     * @param tran
+     * @return
+     */
     public boolean deleteTransaction(Transaction tran);
 
     /**

@@ -7,9 +7,9 @@ import java.util.logging.Logger;
  *
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
-public class Provider {
+public class Supplier {
 
-    private static final Logger LOG = Logger.getLogger(Provider.class.getName());
+    private static final Logger LOG = Logger.getLogger(Supplier.class.getName());
     private int provider_id;
     private String name;
     private Address addr;

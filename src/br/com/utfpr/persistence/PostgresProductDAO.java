@@ -10,6 +10,7 @@ import javax.sql.RowSet;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 class PostgresProductDAO implements ProductDAO {
+    private static final Logger LOG = Logger.getLogger(PostgresProductDAO.class.getName());
 
     PostgresProductDAO() {
     }
@@ -38,5 +39,4 @@ class PostgresProductDAO implements ProductDAO {
     public RowSet selectProductRS(String condition) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private static final Logger LOG = Logger.getLogger(PostgresProductDAO.class.getName());
 }

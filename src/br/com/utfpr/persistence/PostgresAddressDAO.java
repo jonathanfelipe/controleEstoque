@@ -10,6 +10,7 @@ import javax.sql.RowSet;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 class PostgresAddressDAO implements AddressDAO {
+    private static final Logger LOG = Logger.getLogger(PostgresAddressDAO.class.getName());
 
     PostgresAddressDAO() {
     }
@@ -38,5 +39,4 @@ class PostgresAddressDAO implements AddressDAO {
     public RowSet selectAddressRS(String condition) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private static final Logger LOG = Logger.getLogger(PostgresAddressDAO.class.getName());
 }

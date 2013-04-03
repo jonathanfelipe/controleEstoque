@@ -10,9 +10,8 @@ public class Product {
 
     private static final Logger LOG = Logger.getLogger(Product.class.getName());
     private int product_id;
-    //PENSAR MELHOR - TALVEZ NAO SEJA NECESSARIO TER O PROVIDER ID
-    private int provider_id;
     private double price;
+    private double cost;
     private int quantity;
     private String name;
     private String description;
@@ -32,24 +31,6 @@ public class Product {
     public void setProduct_id(int product_id) {
         if (product_id > 0) {
             this.product_id = product_id;
-        }
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getProvider_id() {
-        return provider_id;
-    }
-
-    /**
-     *
-     * @param provider_id
-     */
-    public void setProvider_id(int provider_id) {
-        if (provider_id > 0) {
-            this.provider_id = provider_id;
         }
     }
 
@@ -123,5 +104,21 @@ public class Product {
         if (!description.isEmpty()) {
             this.description = description;
         }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public double getCost() {
+        return cost;
+    }
+
+    /**
+     *
+     * @param cost
+     */
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }

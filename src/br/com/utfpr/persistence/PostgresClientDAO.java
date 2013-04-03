@@ -10,6 +10,7 @@ import javax.sql.RowSet;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 class PostgresClientDAO implements ClientDAO {
+    private static final Logger LOG = Logger.getLogger(PostgresClientDAO.class.getName());
 
     PostgresClientDAO() {
     }
@@ -38,5 +39,4 @@ class PostgresClientDAO implements ClientDAO {
     public RowSet selectClientRS(String condition) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private static final Logger LOG = Logger.getLogger(PostgresClientDAO.class.getName());
 }

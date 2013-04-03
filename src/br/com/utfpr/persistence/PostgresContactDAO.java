@@ -10,6 +10,7 @@ import javax.sql.RowSet;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 class PostgresContactDAO implements ContactDAO {
+    private static final Logger LOG = Logger.getLogger(PostgresContactDAO.class.getName());
 
     PostgresContactDAO() {
     }
@@ -38,5 +39,4 @@ class PostgresContactDAO implements ContactDAO {
     public RowSet selectContactRS(String condition) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private static final Logger LOG = Logger.getLogger(PostgresContactDAO.class.getName());
 }

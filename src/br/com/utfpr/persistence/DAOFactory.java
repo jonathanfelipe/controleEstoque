@@ -13,11 +13,17 @@ import br.com.utfpr.persistence.interfaces.TransactionDAO;
  */
 //ABSTRACT FACTORY PATTERN
 public abstract class DAOFactory {
-    //list of DAO types supported by the factory
-
+    /**
+     *
+     */
+    
     public static final int POSTGRES = 1;
-    //add others later
 
+    /**
+     *
+     * @param whichFactory
+     * @return
+     */
     public static DAOFactory getDAOFactory(int whichFactory) {
         switch (whichFactory) {
             case POSTGRES:
@@ -27,16 +33,39 @@ public abstract class DAOFactory {
         }
     }
 
-    // implement these methods.
-    public abstract ClientDAO getClientDAO();
+    /**
+     *
+     * @return
+     */
+        public abstract ClientDAO getClientDAO();
 
+    /**
+     *
+     * @return
+     */
     public abstract ProductDAO getProductDAO();
 
+    /**
+     *
+     * @return
+     */
     public abstract ProviderDAO getProviderDAO();
 
+    /**
+     *
+     * @return
+     */
     public abstract TransactionDAO getTransactionDAO();
 
+    /**
+     *
+     * @return
+     */
     public abstract AddressDAO getAddressDAO();
 
+    /**
+     *
+     * @return
+     */
     public abstract ContactDAO getContactDAO();
 }

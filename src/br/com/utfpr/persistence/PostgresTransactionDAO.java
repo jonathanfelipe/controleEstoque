@@ -10,6 +10,7 @@ import javax.sql.RowSet;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 class PostgresTransactionDAO implements TransactionDAO {
+    private static final Logger LOG = Logger.getLogger(PostgresTransactionDAO.class.getName());
 
     PostgresTransactionDAO() {
     }
@@ -38,5 +39,4 @@ class PostgresTransactionDAO implements TransactionDAO {
     public RowSet selectTransactionRS(String condition) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private static final Logger LOG = Logger.getLogger(PostgresTransactionDAO.class.getName());
 }

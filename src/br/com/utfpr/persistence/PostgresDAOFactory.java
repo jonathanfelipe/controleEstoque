@@ -22,13 +22,14 @@ class PostgresDAOFactory extends DAOFactory {
     public static final String DATABASE = "estoquedb";
     public static final String LOGIN = "postgres";
     public static final String PASSWORD = "postgres";
-
-    PostgresDAOFactory() {
-    }
+    private static final Logger LOG = Logger.getLogger(PostgresDAOFactory.class.getName());
 
     public static Connection createConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
         return DriverManager.getConnection(URL + DATABASE, LOGIN, PASSWORD);
+    }
+
+    PostgresDAOFactory() {
     }
 
     @Override
@@ -61,5 +62,4 @@ class PostgresDAOFactory extends DAOFactory {
     public ContactDAO getContactDAO() {
         return new PostgresContactDAO();
     }
-    private static final Logger LOG = Logger.getLogger(PostgresDAOFactory.class.getName());
 }
