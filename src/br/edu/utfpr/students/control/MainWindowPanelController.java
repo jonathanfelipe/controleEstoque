@@ -11,9 +11,12 @@ import br.edu.utfpr.students.view.MainWindowPanel;
  */
 public class MainWindowPanelController implements ActionListener {
 	private MainWindowPanel view;
+	private MainControl mainControl;
 
 	public MainWindowPanelController(MainControl mainControl) {
+		this.mainControl = mainControl;
 		setUpView();
+		
 	}
 
 	public void setUpView() {
