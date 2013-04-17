@@ -9,7 +9,6 @@ import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
 import br.edu.utfpr.students.persistence.interfaces.ContactDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProviderDAO;
-import br.edu.utfpr.students.persistence.interfaces.TransactionDAO;
 
 /**
  * 
@@ -45,11 +44,6 @@ class PostgresDAOFactory extends DAOFactory {
 	@Override
 	public ProviderDAO getProviderDAO() {
 		return new PostgresProviderDAO();
-	}
-
-	@Override
-	public TransactionDAO getTransactionDAO() {
-		return new PostgresTransactionDAO();
 	}
 
 	@Override

@@ -16,12 +16,14 @@ public class MainWindowPanelController implements ActionListener {
 	public MainWindowPanelController(MainControl mainControl) {
 		this.mainControl = mainControl;
 		setUpView();
-		
+
 	}
 
 	public void setUpView() {
 		view = MainControl.getMainWindowView();
 		view.getBtnOk().addActionListener(this);
+		view.getBtnOk().setActionCommand("Message");// MESSAGE TO BE PASS
+													// TROUGHT THE ACTIONEVENT
 
 	}
 

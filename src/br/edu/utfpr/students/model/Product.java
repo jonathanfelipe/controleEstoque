@@ -9,9 +9,26 @@ public class Product {
 	private int product_id;
 	private double price;
 	private double cost;
+	private int qnty_parts_to_build;
 	private int quantity;
 	private String name;
 	private String description;
+
+	/**
+	 * @return the qnty_parts_to_build
+	 */
+	public int getQnty_parts_to_build() {
+		return qnty_parts_to_build;
+	}
+
+	/**
+	 * @param qnty_parts_to_build
+	 *            the qnty_parts_to_build to set
+	 */
+	public void setQnty_parts_to_build(int qnty_parts_to_build) {
+		if (qnty_parts_to_build >= 0)
+			this.qnty_parts_to_build = qnty_parts_to_build;
+	}
 
 	/**
 	 * 
@@ -44,7 +61,7 @@ public class Product {
 	 * @param price
 	 */
 	public void setPrice(double price) {
-		if (price > 0.0) {
+		if (price >= 0.0) {
 			this.price = price;
 		}
 
@@ -58,13 +75,14 @@ public class Product {
 		return quantity;
 	}
 
-	/**
-	 * 
-	 * @param quantity
-	 */
-	public void setQuantity(int quantity) {
+	public void addQuantity(int quantity) {
+		if (quantity > 0)
+			this.quantity = quantity;
+	}
 
-		this.quantity = quantity;
+	public void remQuantity(int quantity) {
+		if (quantity < 0)
+			this.quantity = quantity;
 	}
 
 	/**

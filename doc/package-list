@@ -1,0 +1,6 @@
+br.edu.utfpr.students.control
+br.edu.utfpr.students.model
+br.edu.utfpr.students.persistence
+br.edu.utfpr.students.persistence.interfaces
+br.edu.utfpr.students.util
+br.edu.utfpr.students.view

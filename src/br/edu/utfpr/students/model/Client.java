@@ -9,6 +9,10 @@ public class Client {
 	private int client_id;
 	private String name;
 	private String ssn;
+	private String birthdate;
+	// quando criar cliente fazer primeiro a insercao do endereco e do contato,
+	// pois eles retornaram os ids dos objetos para serem armazenados na tabela
+	// do cliente
 	private Address addr;
 	private Contact cont;
 
@@ -101,5 +105,20 @@ public class Client {
 		if (client_id > 0) {
 			this.client_id = client_id;
 		}
+	}
+
+	/**
+	 * @return the birthdate
+	 */
+	public String getBirthdate() {
+		return birthdate;
+	}
+
+	/**
+	 * @param birthdate
+	 *            the birthdate to set
+	 */
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 }

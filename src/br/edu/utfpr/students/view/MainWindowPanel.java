@@ -28,12 +28,7 @@ public class MainWindowPanel extends JPanel {
 		setSize(WIDTH, HEIGHT);
 		setLayout(null);
 		btnOk = new JButton("Ok");
-		btnOk.setBounds(402, 5, 75, 29);
+		btnOk.setBounds(430, 585, 91, 29);
 		add(btnOk);
-
-		JButton btnConfirm = new JButton("Confirm");
-		btnConfirm.setBounds(360, 329, 117, 29);
-		add(btnConfirm);
 	}
-
 }

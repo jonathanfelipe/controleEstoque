@@ -1,7 +1,5 @@
 package br.edu.utfpr.students.model;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
@@ -10,9 +8,9 @@ public class Contact {
 
 	// chave primaria do objeto contact no db
 	private int contact_id;
-	private ArrayList<String> telephone;
-	private ArrayList<String> cellphone;
-	private ArrayList<String> email;
+	private String telephone;
+	private String cellphone;
+	private String email;
 
 	/**
 	 * 
@@ -36,7 +34,7 @@ public class Contact {
 	 * 
 	 * @return
 	 */
-	public ArrayList<String> getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
@@ -44,7 +42,7 @@ public class Contact {
 	 * 
 	 * @param telephone
 	 */
-	public void setTelephone(ArrayList<String> telephone) {
+	public void setTelephone(String telephone) {
 		if (telephone != null) {
 			this.telephone = telephone;
 		}
@@ -52,45 +50,9 @@ public class Contact {
 
 	/**
 	 * 
-	 * @param telephone
-	 */
-	public void addTelephone(String telephone) {
-		if (!telephone.isEmpty()) {
-			this.telephone.add(telephone);
-		}
-	}
-
-	/**
-	 * 
 	 * @return
 	 */
-	public ArrayList<String> getCellphone() {
-		return cellphone;
-	}
-
-	/**
-	 * 
-	 * @param cellphone
-	 */
-	public void setCellphone(ArrayList<String> cellphone) {
-		this.cellphone = cellphone;
-	}
-
-	/**
-	 * 
-	 * @param cellphone
-	 */
-	public void addCellphone(String cellphone) {
-		if (!cellphone.isEmpty()) {
-			this.cellphone.add(cellphone);
-		}
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public ArrayList<String> getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -98,19 +60,25 @@ public class Contact {
 	 * 
 	 * @param email
 	 */
-	public void setEmail(ArrayList<String> email) {
+	public void setEmail(String email) {
 		if (email != null) {
 			this.email = email;
 		}
 	}
 
 	/**
-	 * 
-	 * @param email
+	 * @return the cellphone
 	 */
-	public void addEmail(String email) {
-		if (!email.isEmpty()) {
-			this.email.add(email);
-		}
+	public String getCellphone() {
+		return cellphone;
 	}
+
+	/**
+	 * @param cellphone
+	 *            the cellphone to set
+	 */
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
+
 }

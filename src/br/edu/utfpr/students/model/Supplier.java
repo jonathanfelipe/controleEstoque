@@ -8,31 +8,17 @@ import java.util.ArrayList;
  */
 public class Supplier {
 
-	private int provider_id;
+	private int supplier_id;
 	private String name;
+	// primeiro inserir o endereco e o contato na tabela e com os ids deles
+	// entao criar o supplier
 	private Address addr;
 	private Contact cont;
 	private int legalPersonNumber;
 	// tabela separada many-to-many
-	private ArrayList<Integer> products_id;
+	private ArrayList<Product> products;
 
-	/**
-	 * 
-	 * @return
-	 */
-	public int getProvider_id() {
-		return provider_id;
-	}
-
-	/**
-	 * 
-	 * @param provider_id
-	 */
-	public void setProvider_id(int provider_id) {
-		if (provider_id > 0) {
-			this.provider_id = provider_id;
-		}
-	}
+	// INSERIR REGEX PARA CHECAR SE OCORREU ERRO AQUI
 
 	/**
 	 * 
@@ -74,17 +60,17 @@ public class Supplier {
 	 * 
 	 * @return
 	 */
-	public ArrayList<Integer> getProducts_id() {
-		return products_id;
+	public ArrayList<Product> getProducts_id() {
+		return products;
 	}
 
 	/**
 	 * 
 	 * @param products_id
 	 */
-	public void setProducts_id(ArrayList<Integer> products_id) {
-		if (products_id != null) {
-			this.products_id = products_id;
+	public void setProducts(ArrayList<Product> products) {
+		if (products != null) {
+			this.products = products;
 		}
 	}
 
@@ -92,9 +78,9 @@ public class Supplier {
 	 * 
 	 * @param product_id
 	 */
-	public void addProduct_id(int product_id) {
-		if (product_id > 0) {
-			this.products_id.add(product_id);
+	public void addProduct(Product product) {
+		if (product != null) {
+			this.products.add(product);
 		}
 	}
 
@@ -132,5 +118,20 @@ public class Supplier {
 		if (cont != null) {
 			this.cont = cont;
 		}
+	}
+
+	/**
+	 * @return the supplier_id
+	 */
+	public int getSupplier_id() {
+		return supplier_id;
+	}
+
+	/**
+	 * @param supplier_id
+	 *            the supplier_id to set
+	 */
+	public void setSupplier_id(int supplier_id) {
+		this.supplier_id = supplier_id;
 	}
 }

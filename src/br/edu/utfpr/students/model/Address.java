@@ -6,6 +6,7 @@ package br.edu.utfpr.students.model;
  */
 public class Address {
 
+	private int addrs_id;
 	private String zipCode;
 	private String street;
 	private String district;
@@ -138,5 +139,20 @@ public class Address {
 		if (number >= 0) {
 			this.number = number;
 		}
+	}
+
+	/**
+	 * @return the addrs_id
+	 */
+	public int getAddrs_id() {
+		return addrs_id;
+	}
+
+	/**
+	 * @param addrs_id
+	 *            the addrs_id to set
+	 */
+	public void setAddrs_id(int addrs_id) {
+		this.addrs_id = addrs_id;
 	}
 }

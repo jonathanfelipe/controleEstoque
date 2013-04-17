@@ -5,7 +5,6 @@ import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
 import br.edu.utfpr.students.persistence.interfaces.ContactDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProviderDAO;
-import br.edu.utfpr.students.persistence.interfaces.TransactionDAO;
 
 /**
  * 
@@ -50,12 +49,6 @@ public abstract class DAOFactory {
 	 * @return
 	 */
 	public abstract ProviderDAO getProviderDAO();
-
-	/**
-	 * 
-	 * @return
-	 */
-	public abstract TransactionDAO getTransactionDAO();
 
 	/**
 	 * 
