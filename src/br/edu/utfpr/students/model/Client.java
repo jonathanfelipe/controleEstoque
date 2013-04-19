@@ -1,5 +1,7 @@
 package br.edu.utfpr.students.model;
 
+import java.sql.Date;
+
 /**
  * 
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
@@ -9,7 +11,7 @@ public class Client {
 	private int client_id;
 	private String name;
 	private String ssn;
-	private String birthdate;
+	private Date birthdate;
 	// quando criar cliente fazer primeiro a insercao do endereco e do contato,
 	// pois eles retornaram os ids dos objetos para serem armazenados na tabela
 	// do cliente
@@ -110,7 +112,7 @@ public class Client {
 	/**
 	 * @return the birthdate
 	 */
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
@@ -118,7 +120,7 @@ public class Client {
 	 * @param birthdate
 	 *            the birthdate to set
 	 */
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 }

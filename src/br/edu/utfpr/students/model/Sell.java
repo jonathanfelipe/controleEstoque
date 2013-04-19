@@ -3,82 +3,35 @@
  */
 package br.edu.utfpr.students.model;
 
-import java.util.ArrayList;
+import java.sql.Date;
+import java.util.LinkedList;
 
 /**
  * @author raphael
  * 
  */
 public class Sell {
+	//venda para o cliente
+	//tabela venda contendo pk sell_id
+	//total da venda: total
+	//custo total: totalCost
+	//total ganho: totalEarn //eg consulta verificar faturamento do mes
+	//data: selldate			 // select totalearn from selled where date between data e data
 	private int sell_id;
 	private double total;
 	private double totalCost;
 	private double totalEarn;
-
-	private ArrayList<Integer> productList;
-	private ArrayList<Double> priceList;
-	private ArrayList<Double> costList;
-	private ArrayList<Integer> quantity;
-
-	/**
-	 * @return the quantity
-	 */
-	public ArrayList<Integer> getQuantity() {
-		return quantity;
-	}
-
-	/**
-	 * @param quantity
-	 *            the quantity to set
-	 */
-	public void setQuantity(ArrayList<Integer> quantity) {
-		this.quantity = quantity;
-	}
-
-	/**
-	 * @return the costList
-	 */
-	public ArrayList<Double> getCostList() {
-		return costList;
-	}
-
-	/**
-	 * @param costList
-	 *            the costList to set
-	 */
-	public void setCostList(ArrayList<Double> costList) {
-		this.costList = costList;
-	}
-
-	/**
-	 * @return the priceList
-	 */
-	public ArrayList<Double> getPriceList() {
-		return priceList;
-	}
-
-	/**
-	 * @param priceList
-	 *            the priceList to set
-	 */
-	public void setPriceList(ArrayList<Double> priceList) {
-		this.priceList = priceList;
-	}
-
-	/**
-	 * @return the productList
-	 */
-	public ArrayList<Integer> getProductList() {
-		return productList;
-	}
-
-	/**
-	 * @param productList
-	 *            the productList to set
-	 */
-	public void setProductList(ArrayList<Integer> productList) {
-		this.productList = productList;
-	}
+	private Date date;
+	//tabela separa para ligar id da venda ao id da lista de produtos vendidos
+	//contendo somente informacoes pertimentes para venda
+	//id do produto (para descricoes) product_id
+	//quantidade vendida: quantity
+	//custo na epoca de venda: cost
+	//informacao de por quanto foi vendido: price
+	//a ligacao entre a tabela de venda e a tabela de produto many-to-many
+	//sera feita atravez de uma tabela intermediaria 
+	//relacionando sell_id -> sold_products_id
+	private LinkedList<Product> productList;
 
 	/**
 	 * @return the totalEarn
@@ -138,5 +91,41 @@ public class Sell {
 	 */
 	public void setSell_id(int sell_id) {
 		this.sell_id = sell_id;
+	}
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/**
+	 * @return the productList
+	 */
+	public LinkedList<Product> getProductList() {
+		return productList;
+	}
+
+	/**
+	 * @param productList the productList to set
+	 */
+	public void setProductList(LinkedList<Product> productList) {
+		this.productList = productList;
+	}
+	
+	public void addProductToList(Product product){
+		this.productList.addLast(product);
+	}
+	
+	public void remProductFromList(Product product){
+		this.productList.remove(product);
 	}
 }

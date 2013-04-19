@@ -5,30 +5,18 @@ package br.edu.utfpr.students.model;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Product {
-
+	//quantidade de produtos em estoque esta na tabela quantity
+	//que contem  quantity_id chave primaria
+	//o id do produto product_id
+	//e a quantidade quantity
 	private int product_id;
 	private double price;
 	private double cost;
-	private int qnty_parts_to_build;
+	private boolean needSubcomponents;
 	private int quantity;
 	private String name;
 	private String description;
 
-	/**
-	 * @return the qnty_parts_to_build
-	 */
-	public int getQnty_parts_to_build() {
-		return qnty_parts_to_build;
-	}
-
-	/**
-	 * @param qnty_parts_to_build
-	 *            the qnty_parts_to_build to set
-	 */
-	public void setQnty_parts_to_build(int qnty_parts_to_build) {
-		if (qnty_parts_to_build >= 0)
-			this.qnty_parts_to_build = qnty_parts_to_build;
-	}
 
 	/**
 	 * 
@@ -135,5 +123,19 @@ public class Product {
 	 */
 	public void setCost(double cost) {
 		this.cost = cost;
+	}
+
+	/**
+	 * @return the needSubcomponents
+	 */
+	public boolean isNeedSubcomponents() {
+		return needSubcomponents;
+	}
+
+	/**
+	 * @param needSubcomponents the needSubcomponents to set
+	 */
+	public void setNeedSubcomponents(boolean needSubcomponents) {
+		this.needSubcomponents = needSubcomponents;
 	}
 }

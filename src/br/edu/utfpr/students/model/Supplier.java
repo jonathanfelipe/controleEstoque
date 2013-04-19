@@ -1,6 +1,6 @@
 package br.edu.utfpr.students.model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * 
@@ -15,8 +15,8 @@ public class Supplier {
 	private Address addr;
 	private Contact cont;
 	private int legalPersonNumber;
-	// tabela separada many-to-many
-	private ArrayList<Product> products;
+	// tabela separada many-to-many //tabela provides relaciona supplier -> products
+	private LinkedList<Product> products;
 
 	// INSERIR REGEX PARA CHECAR SE OCORREU ERRO AQUI
 
@@ -60,7 +60,7 @@ public class Supplier {
 	 * 
 	 * @return
 	 */
-	public ArrayList<Product> getProducts_id() {
+	public LinkedList<Product> getProducts_id() {
 		return products;
 	}
 
@@ -68,7 +68,7 @@ public class Supplier {
 	 * 
 	 * @param products_id
 	 */
-	public void setProducts(ArrayList<Product> products) {
+	public void setProducts(LinkedList<Product> products) {
 		if (products != null) {
 			this.products = products;
 		}
