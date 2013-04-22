@@ -18,6 +18,7 @@ public class Sell {
 	//total ganho: totalEarn //eg consulta verificar faturamento do mes
 	//data: selldate			 // select totalearn from selled where date between data e data
 	private int sell_id;
+	private int client_id;
 	private double total;
 	private double totalCost;
 	private double totalEarn;
@@ -127,5 +128,19 @@ public class Sell {
 	
 	public void remProductFromList(Product product){
 		this.productList.remove(product);
+	}
+
+	/**
+	 * @return the client_id
+	 */
+	public int getClient_id() {
+		return client_id;
+	}
+
+	/**
+	 * @param client_id the client_id to set
+	 */
+	public void setClient_id(int client_id) {
+		this.client_id = client_id;
 	}
 }

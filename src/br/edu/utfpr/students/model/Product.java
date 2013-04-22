@@ -11,9 +11,15 @@ public class Product {
 	//e a quantidade quantity
 	private int product_id;
 	private double price;
-	private double cost;
+
 	private boolean needSubcomponents;
+	
+	//quantidade e custo estao na tabela quantity
+	
+	private double cost;
 	private int quantity;
+	
+	
 	private String name;
 	private String description;
 
