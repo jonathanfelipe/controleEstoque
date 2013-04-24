@@ -4,6 +4,7 @@
 package br.edu.utfpr.students.model;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.LinkedList;
 
 /**
@@ -17,7 +18,7 @@ public class Buy {
 	//a data da compra: buydate
 	//e o custo total: totalcost
 	private int buy_id;
-	private Date date;
+	private Calendar date;
 	private double totalCost;
 	//havera uma tabela para ligar a tabela buy com a purshashed_products
 	//que contera o id do produto
@@ -29,13 +30,13 @@ public class Buy {
 	/**
 	 * @return the date
 	 */
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 	/**

@@ -3,7 +3,8 @@
  */
 package br.edu.utfpr.students.model;
 
-import java.sql.Date;
+
+import java.util.Calendar;
 import java.util.LinkedList;
 
 /**
@@ -22,7 +23,7 @@ public class Sell {
 	private double total;
 	private double totalCost;
 	private double totalEarn;
-	private Date date;
+	private Calendar date;
 	//tabela separa para ligar id da venda ao id da lista de produtos vendidos
 	//contendo somente informacoes pertimentes para venda
 	//id do produto (para descricoes) product_id
@@ -97,14 +98,14 @@ public class Sell {
 	/**
 	 * @return the date
 	 */
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 

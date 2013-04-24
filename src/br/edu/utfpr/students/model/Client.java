@@ -1,6 +1,7 @@
 package br.edu.utfpr.students.model;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 /**
  * 
@@ -11,7 +12,7 @@ public class Client {
 	private int client_id;
 	private String name;
 	private String ssn;
-	private Date birthdate;
+	private Calendar birthdate;
 	// quando criar cliente fazer primeiro a insercao do endereco e do contato,
 	// pois eles retornaram os ids dos objetos para serem armazenados na tabela
 	// do cliente
@@ -112,7 +113,7 @@ public class Client {
 	/**
 	 * @return the birthdate
 	 */
-	public Date getBirthdate() {
+	public Calendar getBirthdate() {
 		return birthdate;
 	}
 
@@ -120,7 +121,7 @@ public class Client {
 	 * @param birthdate
 	 *            the birthdate to set
 	 */
-	public void setBirthdate(Date birthdate) {
+	public void setBirthdate(Calendar birthdate) {
 		this.birthdate = birthdate;
 	}
 }
