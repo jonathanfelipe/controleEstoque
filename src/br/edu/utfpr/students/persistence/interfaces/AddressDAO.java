@@ -4,6 +4,8 @@
  */
 package br.edu.utfpr.students.persistence.interfaces;
 
+import java.sql.SQLException;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Address;
@@ -18,8 +20,11 @@ public interface AddressDAO {
 	 * 
 	 * @param address
 	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public int insertAddress(Address address);
+	public int insertAddress(Address address) throws ClassNotFoundException,
+			SQLException;
 
 	/**
 	 * 
@@ -47,5 +52,5 @@ public interface AddressDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectAddressRS(String condition);
+	public RowSet selectAddressRS(Address address);
 }

@@ -47,5 +47,5 @@ public interface ProductDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectProductRS(String condition);
+	public RowSet selectProductRS(Product pro);
 }

@@ -70,16 +70,8 @@ class PostgresClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public RowSet selectClientRS(String condition) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+	public RowSet selectClientRS(Client client) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

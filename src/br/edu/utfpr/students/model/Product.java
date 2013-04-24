@@ -5,24 +5,22 @@ package br.edu.utfpr.students.model;
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
 public class Product {
-	//quantidade de produtos em estoque esta na tabela quantity
-	//que contem  quantity_id chave primaria
-	//o id do produto product_id
-	//e a quantidade quantity
+	// quantidade de produtos em estoque esta na tabela quantity
+	// que contem quantity_id chave primaria
+	// o id do produto product_id
+	// e a quantidade quantity
 	private int product_id;
 	private double price;
 
 	private boolean needSubcomponents;
-	
-	//quantidade e custo estao na tabela quantity
-	
+
+	// quantidade e custo estao na tabela quantity
+
 	private double cost;
 	private int quantity;
-	
-	
+
 	private String name;
 	private String description;
-
 
 	/**
 	 * 
@@ -139,7 +137,8 @@ public class Product {
 	}
 
 	/**
-	 * @param needSubcomponents the needSubcomponents to set
+	 * @param needSubcomponents
+	 *            the needSubcomponents to set
 	 */
 	public void setNeedSubcomponents(boolean needSubcomponents) {
 		this.needSubcomponents = needSubcomponents;

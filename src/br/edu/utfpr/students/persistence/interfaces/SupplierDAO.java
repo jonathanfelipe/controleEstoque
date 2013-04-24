@@ -12,40 +12,40 @@ import br.edu.utfpr.students.model.Supplier;
  * 
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
  */
-public interface ProviderDAO {
+public interface SupplierDAO {
 
 	/**
 	 * 
-	 * @param prov
+	 * @param supp
 	 * @return
 	 */
-	public int insertProvider(Supplier prov);
+	public int insertSupplier(Supplier supp);
 
 	/**
 	 * 
-	 * @param prov
+	 * @param supp
 	 * @return
 	 */
-	public boolean deleteProvider(Supplier prov);
+	public boolean deleteSupplier(Supplier supp);
 
 	/**
 	 * 
-	 * @param prov
+	 * @param supp
 	 * @return
 	 */
-	public Supplier findProvider(Supplier prov);
+	public Supplier findSupplier(Supplier supp);
 
 	/**
 	 * 
-	 * @param prov
+	 * @param supp
 	 * @return
 	 */
-	public boolean updateProvider(Supplier prov);
+	public boolean updateSupplier(Supplier supp);
 
 	/**
 	 * 
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectProviderRS(String condition);
+	public RowSet selectSupplierRS(Supplier supp);
 }

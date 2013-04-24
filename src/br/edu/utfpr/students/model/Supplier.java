@@ -15,7 +15,8 @@ public class Supplier {
 	private Address addr;
 	private Contact cont;
 	private int legalPersonNumber;
-	// tabela separada many-to-many //tabela provides relaciona supplier -> products
+	// tabela separada many-to-many //tabela provides relaciona supplier ->
+	// products
 	private LinkedList<Product> products;
 
 	// INSERIR REGEX PARA CHECAR SE OCORREU ERRO AQUI

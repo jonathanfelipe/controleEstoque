@@ -70,16 +70,9 @@ class PostgresContactDAO implements ContactDAO {
 	}
 
 	@Override
-	public RowSet selectContactRS(String condition) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+	public RowSet selectContactRS(Contact con) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

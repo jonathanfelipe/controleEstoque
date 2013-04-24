@@ -1,6 +1,5 @@
 package br.edu.utfpr.students.model;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 /**

@@ -8,7 +8,7 @@ import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
 import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
 import br.edu.utfpr.students.persistence.interfaces.ContactDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
-import br.edu.utfpr.students.persistence.interfaces.ProviderDAO;
+import br.edu.utfpr.students.persistence.interfaces.SupplierDAO;
 
 /**
  * 
@@ -18,8 +18,8 @@ class PostgresDAOFactory extends DAOFactory {
 
 	public static final String DRIVER = "org.postgresql.Driver";
 	public static final String URL = "jdbc:postgresql://127.0.0.1:5432/";
-	public static final String DATABASE = "estoquedb";
-	public static final String LOGIN = "postgres";
+	public static final String DATABASE = "controle";
+	public static final String LOGIN = "raphael";
 	public static final String PASSWORD = "postgres";
 
 	public static Connection createConnection() throws ClassNotFoundException,
@@ -42,11 +42,6 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public ProviderDAO getProviderDAO() {
-		return new PostgresProviderDAO();
-	}
-
-	@Override
 	public AddressDAO getAddressDAO() {
 		return new PostgresAddressDAO();
 
@@ -55,5 +50,10 @@ class PostgresDAOFactory extends DAOFactory {
 	@Override
 	public ContactDAO getContactDAO() {
 		return new PostgresContactDAO();
+	}
+
+	@Override
+	public SupplierDAO getSupplierDAO() {
+		return new PostgresSupplierDAO();
 	}
 }

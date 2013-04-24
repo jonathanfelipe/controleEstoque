@@ -15,16 +15,8 @@ class PostgresProductDAO implements ProductDAO {
 
 	@Override
 	public int insertProduct(Product pro) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
+		// TODO INSERT PRODUCT IN THE DB
 	}
 
 	@Override
@@ -70,16 +62,9 @@ class PostgresProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public RowSet selectProductRS(String condition) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+	public RowSet selectProductRS(Product pro) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

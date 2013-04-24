@@ -3,7 +3,6 @@
  */
 package br.edu.utfpr.students.model;
 
-
 import java.util.Calendar;
 import java.util.LinkedList;
 
@@ -12,27 +11,28 @@ import java.util.LinkedList;
  * 
  */
 public class Sell {
-	//venda para o cliente
-	//tabela venda contendo pk sell_id
-	//total da venda: total
-	//custo total: totalCost
-	//total ganho: totalEarn //eg consulta verificar faturamento do mes
-	//data: selldate			 // select totalearn from selled where date between data e data
+	// venda para o cliente
+	// tabela venda contendo pk sell_id
+	// total da venda: total
+	// custo total: totalCost
+	// total ganho: totalEarn //eg consulta verificar faturamento do mes
+	// data: selldate // select totalearn from selled where date between data e
+	// data
 	private int sell_id;
 	private int client_id;
 	private double total;
 	private double totalCost;
 	private double totalEarn;
 	private Calendar date;
-	//tabela separa para ligar id da venda ao id da lista de produtos vendidos
-	//contendo somente informacoes pertimentes para venda
-	//id do produto (para descricoes) product_id
-	//quantidade vendida: quantity
-	//custo na epoca de venda: cost
-	//informacao de por quanto foi vendido: price
-	//a ligacao entre a tabela de venda e a tabela de produto many-to-many
-	//sera feita atravez de uma tabela intermediaria 
-	//relacionando sell_id -> sold_products_id
+	// tabela separa para ligar id da venda ao id da lista de produtos vendidos
+	// contendo somente informacoes pertimentes para venda
+	// id do produto (para descricoes) product_id
+	// quantidade vendida: quantity
+	// custo na epoca de venda: cost
+	// informacao de por quanto foi vendido: price
+	// a ligacao entre a tabela de venda e a tabela de produto many-to-many
+	// sera feita atravez de uma tabela intermediaria
+	// relacionando sell_id -> sold_products_id
 	private LinkedList<Product> productList;
 
 	/**
@@ -103,7 +103,8 @@ public class Sell {
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param date
+	 *            the date to set
 	 */
 	public void setDate(Calendar date) {
 		this.date = date;
@@ -117,17 +118,18 @@ public class Sell {
 	}
 
 	/**
-	 * @param productList the productList to set
+	 * @param productList
+	 *            the productList to set
 	 */
 	public void setProductList(LinkedList<Product> productList) {
 		this.productList = productList;
 	}
-	
-	public void addProductToList(Product product){
+
+	public void addProductToList(Product product) {
 		this.productList.addLast(product);
 	}
-	
-	public void remProductFromList(Product product){
+
+	public void remProductFromList(Product product) {
 		this.productList.remove(product);
 	}
 
@@ -139,7 +141,8 @@ public class Sell {
 	}
 
 	/**
-	 * @param client_id the client_id to set
+	 * @param client_id
+	 *            the client_id to set
 	 */
 	public void setClient_id(int client_id) {
 		this.client_id = client_id;
