@@ -22,8 +22,8 @@ class PostgresAddressDAO implements AddressDAO {
 	@Override
 	public int insertAddress(Address address) throws ClassNotFoundException,
 			SQLException {
-		String sql = "INSERT INTO estoquedb.address(city, state, country, district, street, number, zipcode) VALUES(?,?,?,?,?,?,?);";
-
+		String sql = "INSERT INTO estoquedb.address(city, state, country, district, street, number, zipcode)"
+				+ " VALUES(?,?,?,?,?,?,?);";
 		Connection connection = PostgresDAOFactory.createConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql,
 				Statement.RETURN_GENERATED_KEYS);
@@ -45,7 +45,8 @@ class PostgresAddressDAO implements AddressDAO {
 			throw new SQLException(
 					"Creating user failed, no generated key obtained.");
 		}
-
+		pstmt.close();
+		connection.close();
 		return address.getAddrs_id();
 	}
 

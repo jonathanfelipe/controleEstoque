@@ -1,5 +1,7 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
+import java.sql.SQLException;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Contact;
@@ -14,8 +16,11 @@ public interface ContactDAO {
 	 * 
 	 * @param con
 	 * @return
+	 * @throws
+	 * @throws ClassNotFoundException
 	 */
-	public int insertContact(Contact con);
+	public int insertContact(Contact con) throws ClassNotFoundException,
+			SQLException;
 
 	/**
 	 * 

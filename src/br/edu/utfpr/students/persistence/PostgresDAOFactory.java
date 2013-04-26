@@ -5,9 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
+import br.edu.utfpr.students.persistence.interfaces.BuyDAO;
 import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
 import br.edu.utfpr.students.persistence.interfaces.ContactDAO;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
+import br.edu.utfpr.students.persistence.interfaces.SellDAO;
 import br.edu.utfpr.students.persistence.interfaces.SupplierDAO;
 
 /**
@@ -55,5 +57,15 @@ class PostgresDAOFactory extends DAOFactory {
 	@Override
 	public SupplierDAO getSupplierDAO() {
 		return new PostgresSupplierDAO();
+	}
+
+	@Override
+	public BuyDAO getBuyDAO() {
+		return new PostgresBuyDAO();
+	}
+
+	@Override
+	public SellDAO getSellDAO() {
+		return new PostgresSellDAO();
 	}
 }
