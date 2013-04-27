@@ -4,66 +4,46 @@
 package br.edu.utfpr.students.persistence;
 
 /*
-import java.util.Date;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+ import java.util.Date;
+ import java.sql.SQLException;
+ import java.text.ParseException;
+ import java.text.SimpleDateFormat;
+ import java.util.Calendar;
 
-import br.edu.utfpr.students.model.Address;
-import br.edu.utfpr.students.model.Client;
-import br.edu.utfpr.students.model.Contact;
-import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
+ import br.edu.utfpr.students.model.Address;
+ import br.edu.utfpr.students.model.Client;
+ import br.edu.utfpr.students.model.Contact;
+ import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
 
-/**
+ /**
  * @author raphael
  * 
  */
 public class TestBD {
-/*
-	public static void main(String args[]){
-		DAOFactory postgres = DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
-		ClientDAO cdao = postgres.getClientDAO();
-		Address a = new Address();
-		Contact c = new Contact();
-		a.setCity("Hometown");
-		a.setCountry("Br");
-		a.setDistrict("zip");
-		a.setState("Geo");
-		a.setStreet(" aaa  aaa");
-		a.setZipCode("83331111");
-		a.setNumber(123);
-		c.setCellphone("99388");
-		c.setEmail("aa@aa.com");
-		c.setTelephone("233222");
-		Client cl = new Client();
-		cl.setName("Raphael");
-		cl.setAddr(a);
-		cl.setCont(c);
-		
-		Date date = null;
-		try {
-			date = new SimpleDateFormat("dd/MM/yyyy").parse("21/11/1989");
-			cl.setBirthdate(Calendar.getInstance());
-			cl.getBirthdate().setTime(date);
-			
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-			int id = 0;
-		try {
-			 id = cdao.insertClient(cl);
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(id);
-	}
-	
-	
-	/**
+	/*
+	 * public static void main(String args[]){ DAOFactory postgres =
+	 * DAOFactory.getDAOFactory(DAOFactory.POSTGRES); ClientDAO cdao =
+	 * postgres.getClientDAO(); Address a = new Address(); Contact c = new
+	 * Contact(); a.setCity("Hometown"); a.setCountry("Br");
+	 * a.setDistrict("zip"); a.setState("Geo"); a.setStreet(" aaa  aaa");
+	 * a.setZipCode("83331111"); a.setNumber(123); c.setCellphone("99388");
+	 * c.setEmail("aa@aa.com"); c.setTelephone("233222"); Client cl = new
+	 * Client(); cl.setName("Raphael"); cl.setAddr(a); cl.setCont(c);
+	 * 
+	 * Date date = null; try { date = new
+	 * SimpleDateFormat("dd/MM/yyyy").parse("21/11/1989");
+	 * cl.setBirthdate(Calendar.getInstance()); cl.getBirthdate().setTime(date);
+	 * 
+	 * } catch (ParseException e1) { // TODO Auto-generated catch block
+	 * e1.printStackTrace(); }
+	 * 
+	 * int id = 0; try { id = cdao.insertClient(cl); } catch
+	 * (ClassNotFoundException | SQLException e) { // TODO Auto-generated catch
+	 * block e.printStackTrace(); } System.out.println(id); }
+	 * 
+	 * 
+	 * /**
+	 * 
 	 * @param args
 	 */
 	/*

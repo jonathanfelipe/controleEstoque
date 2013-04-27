@@ -12,6 +12,13 @@ public class Contact {
 	private String cellphone;
 	private String email;
 
+	public Contact() {
+		contact_id = 0;
+		telephone = "";
+		cellphone = "";
+		email = "";
+	}
+
 	/**
 	 * 
 	 * @return

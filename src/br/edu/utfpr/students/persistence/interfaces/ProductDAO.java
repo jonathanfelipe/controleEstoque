@@ -4,6 +4,8 @@
  */
 package br.edu.utfpr.students.persistence.interfaces;
 
+import java.sql.SQLException;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Product;
@@ -18,8 +20,11 @@ public interface ProductDAO {
 	 * 
 	 * @param pro
 	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public int insertProduct(Product pro);
+	public int insertProduct(Product pro) throws ClassNotFoundException,
+			SQLException;
 
 	/**
 	 * 

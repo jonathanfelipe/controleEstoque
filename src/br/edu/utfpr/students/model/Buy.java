@@ -19,10 +19,17 @@ public class Buy {
 	private int buy_id;
 	private Calendar date;
 	private double totalCost;
+
 	// havera uma tabela para ligar a tabela buy com a purshashed_products
 	// que contera o id do produto
 	// o custo do produto: cost
 	// e a quantidade comprada: quantity
+
+	public Buy() {
+		buy_id = 0;
+		date = null;
+		totalCost = 0.0;
+	}
 
 	private LinkedList<Product> productList;
 
@@ -87,11 +94,11 @@ public class Buy {
 	}
 
 	public void addProductToList(Product product) {
-		this.productList.addLast(product);
+		productList.addLast(product);
 	}
 
 	public void remProductFromList(Product product) {
-		this.productList.remove(product);
+		productList.remove(product);
 	}
 
 }

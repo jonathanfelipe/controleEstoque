@@ -17,14 +17,14 @@ public class Address {
 
 	public Address() {
 		super();
-		this.addrs_id = 0;
-		this.zipCode = "";
-		this.street = "";
-		this.district = "";
-		this.city = "";
-		this.state = "";
-		this.country = "";
-		this.number = 0;
+		addrs_id = 0;
+		zipCode = "";
+		street = "";
+		district = "";
+		city = "";
+		state = "";
+		country = "";
+		number = 0;
 	}
 
 	/**

@@ -35,6 +35,17 @@ public class Sell {
 	// relacionando sell_id -> sold_products_id
 	private LinkedList<Product> productList;
 
+	public Sell() {
+		super();
+		sell_id = 0;
+		client_id = 0;
+		total = 0.0;
+		totalCost = 0.0;
+		totalEarn = 0.0;
+		date = null;
+		productList = null;
+	}
+
 	/**
 	 * @return the totalEarn
 	 */
@@ -126,11 +137,11 @@ public class Sell {
 	}
 
 	public void addProductToList(Product product) {
-		this.productList.addLast(product);
+		productList.addLast(product);
 	}
 
 	public void remProductFromList(Product product) {
-		this.productList.remove(product);
+		productList.remove(product);
 	}
 
 	/**

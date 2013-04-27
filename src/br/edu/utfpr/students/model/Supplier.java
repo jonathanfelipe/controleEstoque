@@ -21,6 +21,16 @@ public class Supplier {
 
 	// INSERIR REGEX PARA CHECAR SE OCORREU ERRO AQUI
 
+	public Supplier() {
+		super();
+		supplier_id = 0;
+		name = "";
+		addr = null;
+		cont = null;
+		legalPersonNumber = 0;
+		products = null;
+	}
+
 	/**
 	 * 
 	 * @return
@@ -81,7 +91,7 @@ public class Supplier {
 	 */
 	public void addProduct(Product product) {
 		if (product != null) {
-			this.products.add(product);
+			products.add(product);
 		}
 	}
 

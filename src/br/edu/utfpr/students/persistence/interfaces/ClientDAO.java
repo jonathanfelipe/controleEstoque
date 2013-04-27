@@ -16,10 +16,11 @@ public interface ClientDAO {
 	 * 
 	 * @param client
 	 * @return
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public int insertClient(Client client) throws ClassNotFoundException, SQLException;
+	public int insertClient(Client client) throws ClassNotFoundException,
+			SQLException;
 
 	/**
 	 * 

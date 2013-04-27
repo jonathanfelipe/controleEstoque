@@ -20,10 +20,11 @@ public interface SupplierDAO {
 	 * 
 	 * @param supp
 	 * @return
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	public int insertSupplier(Supplier supp) throws ClassNotFoundException, SQLException;
+	public int insertSupplier(Supplier supp) throws ClassNotFoundException,
+			SQLException;
 
 	/**
 	 * 

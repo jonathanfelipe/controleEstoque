@@ -23,16 +23,18 @@ class PostgresClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public int insertClient(Client client) throws ClassNotFoundException, SQLException {
-		DAOFactory postDaoFactory =DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
+	public int insertClient(Client client) throws ClassNotFoundException,
+			SQLException {
+		DAOFactory postDaoFactory = DAOFactory
+				.getDAOFactory(DAOFactory.POSTGRES);
 		int idAdd = -1;
 		int idCont = -1;
-		if(client.getAddr()!=null){
+		if (client.getAddr() != null) {
 			AddressDAO addDao = postDaoFactory.getAddressDAO();
 			idAdd = addDao.insertAddress(client.getAddr());
-			
+
 		}
-		if(client.getCont()!=null){
+		if (client.getCont() != null) {
 			ContactDAO conDao = postDaoFactory.getContactDAO();
 			idCont = conDao.insertContact(client.getCont());
 		}
@@ -58,8 +60,8 @@ class PostgresClientDAO implements ClientDAO {
 					"Creating user failed, no generated key obtained.");
 		}
 		pstmt.close();
-		connection.close();	
-		
+		connection.close();
+
 		return client.getClient_id();
 	}
 

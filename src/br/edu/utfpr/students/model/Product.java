@@ -1,5 +1,7 @@
 package br.edu.utfpr.students.model;
 
+import java.util.LinkedList;
+
 /**
  * 
  * @author Raphael Jardim Lopes <raphaeljlps@gmail.com>
@@ -21,6 +23,20 @@ public class Product {
 
 	private String name;
 	private String description;
+
+	private LinkedList<Product> subcomponents;
+
+	public Product() {
+		super();
+		product_id = 0;
+		price = 0.0;
+		needSubcomponents = false;
+		cost = 0.0;
+		quantity = 0;
+		name = "";
+		description = "";
+		subcomponents = null;
+	}
 
 	/**
 	 * 
@@ -68,13 +84,15 @@ public class Product {
 	}
 
 	public void addQuantity(int quantity) {
-		if (quantity > 0)
+		if (quantity > 0) {
 			this.quantity = quantity;
+		}
 	}
 
 	public void remQuantity(int quantity) {
-		if (quantity < 0)
+		if (quantity < 0) {
 			this.quantity = quantity;
+		}
 	}
 
 	/**
@@ -142,5 +160,24 @@ public class Product {
 	 */
 	public void setNeedSubcomponents(boolean needSubcomponents) {
 		this.needSubcomponents = needSubcomponents;
+	}
+
+	/**
+	 * @return the subcomponents
+	 */
+	public LinkedList<Product> getSubcomponents() {
+		return subcomponents;
+	}
+
+	/**
+	 * @param subcomponents
+	 *            the subcomponents to set
+	 */
+	public void setSubcomponents(LinkedList<Product> subcomponents) {
+		this.subcomponents = subcomponents;
+	}
+
+	public void addSubcomponent(Product subcomponent) {
+		subcomponents.addLast(subcomponent);
 	}
 }

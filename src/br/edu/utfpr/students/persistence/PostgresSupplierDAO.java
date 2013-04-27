@@ -22,16 +22,18 @@ class PostgresSupplierDAO implements SupplierDAO {
 	}
 
 	@Override
-	public int insertSupplier(Supplier supp) throws ClassNotFoundException, SQLException {
-		DAOFactory postDaoFactory =DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
+	public int insertSupplier(Supplier supp) throws ClassNotFoundException,
+			SQLException {
+		DAOFactory postDaoFactory = DAOFactory
+				.getDAOFactory(DAOFactory.POSTGRES);
 		int idAdd = -1;
 		int idCont = -1;
-		if(supp.getAddr()!=null){
+		if (supp.getAddr() != null) {
 			AddressDAO addDao = postDaoFactory.getAddressDAO();
 			idAdd = addDao.insertAddress(supp.getAddr());
-			
+
 		}
-		if(supp.getCont()!=null){
+		if (supp.getCont() != null) {
 			ContactDAO conDao = postDaoFactory.getContactDAO();
 			idCont = conDao.insertContact(supp.getCont());
 		}
@@ -44,7 +46,7 @@ class PostgresSupplierDAO implements SupplierDAO {
 		pstmt.setInt(2, supp.getLegalPersonNumber());
 		pstmt.setInt(3, idAdd);
 		pstmt.setInt(4, idCont);
-		
+
 		int affectedRows = pstmt.executeUpdate();
 		if (affectedRows == 0) {
 			throw new SQLException("Creating address failed, no rows affected.");
@@ -57,8 +59,20 @@ class PostgresSupplierDAO implements SupplierDAO {
 					"Creating user failed, no generated key obtained.");
 		}
 		pstmt.close();
-		connection.close();		
+		connection.close();
 		return supp.getSupplier_id();
+	}
+
+	public void insertRelationSupplierProduct(int supplier_id, int product_id)
+			throws ClassNotFoundException, SQLException {
+		String sql = "INSERT INTO estoquedb.provides(supplier_id, product_id) "
+				+ "VALUES(?,?)";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1, supplier_id);
+		pstmt.setInt(2, product_id);
+		pstmt.executeUpdate();
+
 	}
 
 	@Override

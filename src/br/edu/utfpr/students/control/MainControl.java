@@ -22,24 +22,24 @@ public class MainControl {
 	public MainControl() {
 		setUpFrame();
 		MainControl.mainWindowView = getMainWindowView();
-		this.frame.setContentPane(MainControl.mainWindowView);
+		frame.setContentPane(MainControl.mainWindowView);
 		new MainWindowPanelController(this);
 
 	}
 
 	public void setUpFrame() {
-		this.frame = new JFrame();
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setSize(new Dimension(880, 640));
-		this.frame.setVisible(true);
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(new Dimension(880, 640));
+		frame.setVisible(true);
 	}
 
 	public void pack() {
-		this.frame.pack();
+		frame.pack();
 	}
 
 	public void setContentPane(JPanel panel) {
-		this.frame.setContentPane(panel);
+		frame.setContentPane(panel);
 	}
 
 	public void changeToWindow(String actionCommand) {

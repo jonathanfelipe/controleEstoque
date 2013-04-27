@@ -1,10 +1,10 @@
 package br.edu.utfpr.students.persistence;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.sql.RowSet;
 

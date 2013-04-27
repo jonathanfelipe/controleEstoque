@@ -18,6 +18,16 @@ public class Client {
 	private Address addr;
 	private Contact cont;
 
+	public Client() {
+		super();
+		client_id = 0;
+		name = "";
+		ssn = "";
+		birthdate = null;
+		addr = null;
+		cont = null;
+	}
+
 	/**
 	 * 
 	 * @return
