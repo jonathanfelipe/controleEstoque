@@ -1,8 +1,16 @@
 package br.edu.utfpr.students.persistence;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Supplier;
+import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
+import br.edu.utfpr.students.persistence.interfaces.ContactDAO;
 import br.edu.utfpr.students.persistence.interfaces.SupplierDAO;
 
 /**
@@ -14,9 +22,43 @@ class PostgresSupplierDAO implements SupplierDAO {
 	}
 
 	@Override
-	public int insertSupplier(Supplier supp) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertSupplier(Supplier supp) throws ClassNotFoundException, SQLException {
+		DAOFactory postDaoFactory =DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
+		int idAdd = -1;
+		int idCont = -1;
+		if(supp.getAddr()!=null){
+			AddressDAO addDao = postDaoFactory.getAddressDAO();
+			idAdd = addDao.insertAddress(supp.getAddr());
+			
+		}
+		if(supp.getCont()!=null){
+			ContactDAO conDao = postDaoFactory.getContactDAO();
+			idCont = conDao.insertContact(supp.getCont());
+		}
+		String sql = "INSERT INTO estoquedb.supplier(name, legal_person_number, address_id, contact_id)"
+				+ " VALUES(?,?,?,?);";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql,
+				Statement.RETURN_GENERATED_KEYS);
+		pstmt.setString(1, supp.getName());
+		pstmt.setInt(2, supp.getLegalPersonNumber());
+		pstmt.setInt(3, idAdd);
+		pstmt.setInt(4, idCont);
+		
+		int affectedRows = pstmt.executeUpdate();
+		if (affectedRows == 0) {
+			throw new SQLException("Creating address failed, no rows affected.");
+		}
+		ResultSet generatedKeys = pstmt.getGeneratedKeys();
+		if (generatedKeys.next()) {
+			supp.setSupplier_id(generatedKeys.getInt(1));
+		} else {
+			throw new SQLException(
+					"Creating user failed, no generated key obtained.");
+		}
+		pstmt.close();
+		connection.close();		
+		return supp.getSupplier_id();
 	}
 
 	@Override

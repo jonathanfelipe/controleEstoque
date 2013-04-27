@@ -1,5 +1,7 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
+import java.sql.SQLException;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Client;
@@ -14,8 +16,10 @@ public interface ClientDAO {
 	 * 
 	 * @param client
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public int insertClient(Client client);
+	public int insertClient(Client client) throws ClassNotFoundException, SQLException;
 
 	/**
 	 * 

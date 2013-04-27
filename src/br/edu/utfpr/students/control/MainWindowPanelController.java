@@ -12,6 +12,7 @@ import br.edu.utfpr.students.view.MainWindowPanel;
 public class MainWindowPanelController implements ActionListener {
 	private MainWindowPanel view;
 	// alterar se n for necessario
+	@SuppressWarnings("unused")
 	private MainControl mainControl;
 
 	public MainWindowPanelController(MainControl mainControl) {

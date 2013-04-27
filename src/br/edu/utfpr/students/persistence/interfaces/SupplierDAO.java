@@ -4,6 +4,8 @@
  */
 package br.edu.utfpr.students.persistence.interfaces;
 
+import java.sql.SQLException;
+
 import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Supplier;
@@ -18,8 +20,10 @@ public interface SupplierDAO {
 	 * 
 	 * @param supp
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public int insertSupplier(Supplier supp);
+	public int insertSupplier(Supplier supp) throws ClassNotFoundException, SQLException;
 
 	/**
 	 * 

@@ -15,6 +15,18 @@ public class Address {
 	private String country;
 	private int number;
 
+	public Address() {
+		super();
+		this.addrs_id = 0;
+		this.zipCode = "";
+		this.street = "";
+		this.district = "";
+		this.city = "";
+		this.state = "";
+		this.country = "";
+		this.number = 0;
+	}
+
 	/**
 	 * 
 	 * @return the zipcode
