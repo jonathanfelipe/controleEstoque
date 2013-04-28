@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
-import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Product;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
@@ -122,17 +122,24 @@ class PostgresProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public Product findProduct(Product pro) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+	public Product findProduct(Product pro) throws ClassNotFoundException, SQLException {
+		String sql = "SELECT * FROM product WHERE product_id = ?";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1,pro.getProduct_id());
+		ResultSet rset = pstmt.executeQuery();
+		
+		if(rset.next()){
+			pro.setPrice(rset.getDouble("price"));
+			pro.setName(rset.getString("name"));
+			pro.setDescription(rset.getString("description"));
+			pro.setNeedSubcomponents(rset.getBoolean("subcomponent"));
+		}
+		
+		rset.close();
+		pstmt.close();
+		connection.close();
+		return pro;
 	}
 
 	@Override
@@ -168,9 +175,53 @@ class PostgresProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public RowSet selectProductRS(String whereCondition) {
-		// TODO Auto-generated method stub
+	public LinkedList<Product> selectProductRS(String whereCondition) throws ClassNotFoundException, SQLException {
+		if(whereCondition == null){
+			whereCondition = "";
+		}
+		String sql = "SELECT * FROM product ?";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		ResultSet result = pstmt.executeQuery();
+		LinkedList<Product> results = new LinkedList<Product>();
+		Product prod = new Product();
+		while(result.next()){
+			prod.setProduct_id(result.getInt("product_id"));
+			prod.setName(result.getString("name"));
+			prod.setDescription(result.getString("description"));
+			prod.setNeedSubcomponents(result.getBoolean("subcomponent"));
+			if(prod.isNeedSubcomponents()){
+				prod.setSubcomponents(selectSubcomponents(prod.getProduct_id()));
+			}
+			results.add(prod);
+		}
+		
+		result.close();
+		pstmt.close();
+		connection.close();
 		return null;
 	}
 
+
+
+public LinkedList<Product> selectSubcomponents(int product_id) throws ClassNotFoundException, SQLException{
+	String sql = "SELECT component_product_id FROM parts WHERE main_product_id = ?";
+	Connection connection = PostgresDAOFactory.createConnection();
+	PreparedStatement pstmt = connection.prepareStatement(sql);
+	pstmt.setInt(1, product_id);
+	ResultSet result = pstmt.executeQuery();
+	LinkedList<Product> subcomponents = new LinkedList<Product>();
+	Product pro = new Product();
+	while(result.next()){
+		pro.setProduct_id(result.getInt(1));
+		pro = findProduct(pro);
+		subcomponents.addLast(pro);
+	}
+	
+	result.close();
+	pstmt.close();
+	connection.close();
+	return subcomponents;
+	
+}
 }

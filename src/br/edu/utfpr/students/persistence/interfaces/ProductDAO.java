@@ -5,8 +5,8 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 
-import javax.sql.RowSet;
 
 import br.edu.utfpr.students.model.Product;
 
@@ -37,8 +37,10 @@ public interface ProductDAO {
 	 * 
 	 * @param pro
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public Product findProduct(Product pro);
+	public Product findProduct(Product pro) throws ClassNotFoundException, SQLException;
 
 	/**
 	 * 
@@ -51,8 +53,10 @@ public interface ProductDAO {
 	 * 
 	 * @param condition
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public RowSet selectProductRS(String whereCondition);
+	public LinkedList<Product> selectProductRS(String whereCondition) throws ClassNotFoundException, SQLException;
 
 	public void insertRelationSubcomponent(Product pro)
 			throws ClassNotFoundException, SQLException;
@@ -61,5 +65,7 @@ public interface ProductDAO {
 			throws ClassNotFoundException, SQLException;
 
 	public boolean updateQuantityOfProduct(Product pro)
+			throws ClassNotFoundException, SQLException;
+	public LinkedList<Product> selectSubcomponents(int product_id) 
 			throws ClassNotFoundException, SQLException;
 }
