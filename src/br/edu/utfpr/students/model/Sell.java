@@ -43,7 +43,7 @@ public class Sell {
 		totalCost = 0.0;
 		totalEarn = 0.0;
 		date = null;
-		productList = null;
+		productList = new LinkedList<Product>();
 	}
 
 	/**

@@ -40,6 +40,7 @@ public class MainWindowPanel extends JPanel {
 
 		btnCadastrar = new JButton("Cadastrar");
 		GridBagConstraints gbc_btnCadastrar = new GridBagConstraints();
+		gbc_btnCadastrar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnCadastrar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnCadastrar.gridx = 1;
 		gbc_btnCadastrar.gridy = 3;
@@ -47,6 +48,7 @@ public class MainWindowPanel extends JPanel {
 
 		btnAlterar = new JButton("Alterar");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAlterar.gridx = 1;
 		gbc_btnAlterar.gridy = 6;
@@ -54,6 +56,7 @@ public class MainWindowPanel extends JPanel {
 
 		btnExcluir = new JButton("Excluir");
 		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
+		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnExcluir.insets = new Insets(0, 0, 5, 0);
 		gbc_btnExcluir.gridx = 1;
 		gbc_btnExcluir.gridy = 9;
@@ -61,6 +64,7 @@ public class MainWindowPanel extends JPanel {
 
 		btnVender = new JButton("Vender");
 		GridBagConstraints gbc_btnVender = new GridBagConstraints();
+		gbc_btnVender.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnVender.insets = new Insets(0, 0, 5, 0);
 		gbc_btnVender.gridx = 1;
 		gbc_btnVender.gridy = 12;
@@ -68,6 +72,7 @@ public class MainWindowPanel extends JPanel {
 
 		btnComprar = new JButton("Comprar");
 		GridBagConstraints gbc_btnComprar = new GridBagConstraints();
+		gbc_btnComprar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnComprar.gridx = 1;
 		gbc_btnComprar.gridy = 15;
 		add(btnComprar, gbc_btnComprar);

@@ -25,10 +25,10 @@ public class Supplier {
 		super();
 		supplier_id = 0;
 		name = "";
-		addr = null;
-		cont = null;
+		addr = new Address();
+		cont = new Contact();
 		legalPersonNumber = 0;
-		products = null;
+		products = new LinkedList<Product>();
 	}
 
 	/**

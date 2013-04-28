@@ -89,7 +89,7 @@ class PostgresContactDAO implements ContactDAO {
 	}
 
 	@Override
-	public RowSet selectContactRS(Contact con) {
+	public RowSet selectContactRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

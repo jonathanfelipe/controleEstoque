@@ -48,5 +48,5 @@ public interface ContactDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectContactRS(Contact con);
+	public RowSet selectContactRS(String whereCondition);
 }

@@ -52,5 +52,5 @@ public interface AddressDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectAddressRS(Address address);
+	public RowSet selectAddressRS(String whereCondition);
 }

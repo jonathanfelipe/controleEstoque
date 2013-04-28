@@ -20,6 +20,7 @@ public class Product {
 
 	private double cost;
 	private int quantity;
+	private int quantity_id;
 
 	private String name;
 	private String description;
@@ -32,10 +33,11 @@ public class Product {
 		price = 0.0;
 		needSubcomponents = false;
 		cost = 0.0;
+		quantity_id = 0;
 		quantity = 0;
 		name = "";
 		description = "";
-		subcomponents = null;
+		subcomponents = new LinkedList<Product>();
 	}
 
 	/**
@@ -179,5 +181,20 @@ public class Product {
 
 	public void addSubcomponent(Product subcomponent) {
 		subcomponents.addLast(subcomponent);
+	}
+
+	/**
+	 * @return the quantity_id
+	 */
+	public int getQuantity_id() {
+		return quantity_id;
+	}
+
+	/**
+	 * @param quantity_id
+	 *            the quantity_id to set
+	 */
+	public void setQuantity_id(int quantity_id) {
+		this.quantity_id = quantity_id;
 	}
 }

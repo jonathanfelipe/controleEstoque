@@ -48,6 +48,6 @@ public interface ClientDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectClientRS(Client client);
-	// public Collection selectClientTO(Client c);
+	public RowSet selectClientRS(String whereCondition);
+
 }

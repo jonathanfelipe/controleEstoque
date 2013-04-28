@@ -74,7 +74,7 @@ public class PostgresBuyDAO implements BuyDAO {
 	 * .utfpr.students.model.Buy)
 	 */
 	@Override
-	public RowSet selectBuyRS(Buy buy) {
+	public RowSet selectBuyRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

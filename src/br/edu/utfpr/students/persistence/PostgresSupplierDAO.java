@@ -63,6 +63,7 @@ class PostgresSupplierDAO implements SupplierDAO {
 		return supp.getSupplier_id();
 	}
 
+	@Override
 	public void insertRelationSupplierProduct(int supplier_id, int product_id)
 			throws ClassNotFoundException, SQLException {
 		String sql = "INSERT INTO estoquedb.provides(supplier_id, product_id) "
@@ -94,7 +95,7 @@ class PostgresSupplierDAO implements SupplierDAO {
 	}
 
 	@Override
-	public RowSet selectSupplierRS(Supplier supp) {
+	public RowSet selectSupplierRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

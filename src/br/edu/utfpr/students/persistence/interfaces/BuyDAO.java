@@ -21,5 +21,5 @@ public interface BuyDAO {
 
 	public boolean updateBuy(Buy buy);
 
-	public RowSet selectBuyRS(Buy buy);
+	public RowSet selectBuyRS(String whereCondition);
 }

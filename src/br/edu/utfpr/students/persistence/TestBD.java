@@ -3,25 +3,30 @@
  */
 package br.edu.utfpr.students.persistence;
 
-/*
- import java.util.Date;
- import java.sql.SQLException;
- import java.text.ParseException;
- import java.text.SimpleDateFormat;
- import java.util.Calendar;
-
- import br.edu.utfpr.students.model.Address;
- import br.edu.utfpr.students.model.Client;
- import br.edu.utfpr.students.model.Contact;
- import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
-
- /**
+/**
  * @author raphael
  * 
  */
 public class TestBD {
+
 	/*
-	 * public static void main(String args[]){ DAOFactory postgres =
+	 * public static void main(String args[]){ DAOFactory post =
+	 * DAOFactory.getDAOFactory(DAOFactory.POSTGRES); SupplierDAO sup =
+	 * post.getSupplierDAO(); ProductDAO prod = post.getProductDAO();
+	 * 
+	 * Product p = new Product(); p.setCost(3.0); p.setName("cafe2352");
+	 * p.setDescription("the best coffee in the world"); p.setPrice(8.0);
+	 * p.setNeedSubcomponents(true); int idp=0; Product ps = new Product();
+	 * ps.setProduct_id(1); p.addSubcomponent(ps); p.addQuantity(22); try { idp
+	 * = prod.insertProduct(p); } catch (ClassNotFoundException | SQLException
+	 * e) { // TODO Auto-generated catch block e.printStackTrace(); }
+	 * 
+	 * try { sup.insertRelationSupplierProduct(2, idp); } catch
+	 * (ClassNotFoundException | SQLException e) { // TODO Auto-generated catch
+	 * block e.printStackTrace(); } }
+	 * 
+	 * 
+	 * /* public static void main(String args[]){ DAOFactory postgres =
 	 * DAOFactory.getDAOFactory(DAOFactory.POSTGRES); ClientDAO cdao =
 	 * postgres.getClientDAO(); Address a = new Address(); Contact c = new
 	 * Contact(); a.setCity("Hometown"); a.setCountry("Br");

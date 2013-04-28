@@ -93,7 +93,7 @@ class PostgresAddressDAO implements AddressDAO {
 	}
 
 	@Override
-	public RowSet selectAddressRS(Address address) {
+	public RowSet selectAddressRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

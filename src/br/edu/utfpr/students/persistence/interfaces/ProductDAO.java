@@ -52,5 +52,14 @@ public interface ProductDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectProductRS(Product pro);
+	public RowSet selectProductRS(String whereCondition);
+
+	public void insertRelationSubcomponent(Product pro)
+			throws ClassNotFoundException, SQLException;
+
+	public int insertInitialQuantity(Product pro)
+			throws ClassNotFoundException, SQLException;
+
+	public boolean updateQuantityOfProduct(Product pro)
+			throws ClassNotFoundException, SQLException;
 }

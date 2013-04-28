@@ -108,7 +108,7 @@ class PostgresClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public RowSet selectClientRS(Client client) {
+	public RowSet selectClientRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

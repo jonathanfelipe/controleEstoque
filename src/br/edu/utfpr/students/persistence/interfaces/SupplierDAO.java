@@ -52,5 +52,8 @@ public interface SupplierDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectSupplierRS(Supplier supp);
+	public RowSet selectSupplierRS(String whereCondition);
+
+	public void insertRelationSupplierProduct(int supplier_id, int product_id)
+			throws ClassNotFoundException, SQLException;
 }

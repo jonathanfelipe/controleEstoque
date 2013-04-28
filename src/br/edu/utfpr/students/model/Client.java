@@ -24,8 +24,8 @@ public class Client {
 		name = "";
 		ssn = "";
 		birthdate = null;
-		addr = null;
-		cont = null;
+		addr = new Address();
+		cont = new Contact();
 	}
 
 	/**
