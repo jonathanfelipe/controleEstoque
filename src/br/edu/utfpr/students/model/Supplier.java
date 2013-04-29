@@ -21,6 +21,15 @@ public class Supplier {
 
 	// INSERIR REGEX PARA CHECAR SE OCORREU ERRO AQUI
 
+	public Supplier(String name, Address addr, Contact cont,
+			int legalPersonNumber) {
+		super();
+		this.name = name;
+		this.addr = addr;
+		this.cont = cont;
+		this.legalPersonNumber = legalPersonNumber;
+	}
+
 	public Supplier() {
 		super();
 		supplier_id = 0;

@@ -31,6 +31,13 @@ public class Buy {
 		totalCost = 0.0;
 	}
 
+	public Buy(Calendar date, double totalCost, LinkedList<Product> productList) {
+		super();
+		this.date = date;
+		this.totalCost = totalCost;
+		this.productList = productList;
+	}
+
 	private LinkedList<Product> productList;
 
 	/**

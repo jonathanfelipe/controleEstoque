@@ -33,6 +33,8 @@ public class PostgresSellDAO implements SellDAO {
 	@Override
 	public int insertSell(Sell sell) throws ClassNotFoundException,
 			SQLException {
+		//TODO VERIFICAR SE A QUANTIDADE SUFICIENTE PARA VENDA SUBPRODUTOS
+		//TODO ADICIONAR TODOS OS SUBPRODUTOS A VENDA
 		String sql = "INSERT INTO estoquedb.sell(total, totalcost, totalprofit, selldate, client_id)"
 				+ "VALUES(?,?,?,?,?);";
 		Connection connection = PostgresDAOFactory.createConnection();
@@ -94,6 +96,10 @@ public class PostgresSellDAO implements SellDAO {
 		proDao.updateQuantityOfProduct(pro);
 	}
 
+	public void insertBilling(Sell sell){
+		//TODO
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 

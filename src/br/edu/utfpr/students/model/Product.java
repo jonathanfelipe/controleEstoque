@@ -15,7 +15,7 @@ public class Product {
 	private double price;
 
 	private boolean needSubcomponents;
-
+	
 	// quantidade e custo estao na tabela quantity
 
 	private double cost;
@@ -27,6 +27,18 @@ public class Product {
 
 	private LinkedList<Product> subcomponents;
 
+	public Product(double price, boolean needSubcomponents, double cost,
+			int quantity, String name, String description,
+			LinkedList<Product> subcomponents) {
+		super();
+		this.price = price;
+		this.needSubcomponents = needSubcomponents;
+		this.cost = cost;
+		this.quantity = quantity;
+		this.name = name;
+		this.description = description;
+		this.subcomponents = subcomponents;
+	}
 	public Product() {
 		super();
 		product_id = 0;
@@ -85,17 +97,9 @@ public class Product {
 		return quantity;
 	}
 
-	public void addQuantity(int quantity) {
-		if (quantity > 0) {
-			this.quantity = quantity;
-		}
-	}
-
-	public void remQuantity(int quantity) {
-		if (quantity < 0) {
-			this.quantity = quantity;
-		}
-	}
+public void setQuantity(int quantity){
+	this.quantity=quantity;
+}
 
 	/**
 	 * 
@@ -180,8 +184,12 @@ public class Product {
 	}
 
 	public void addSubcomponent(Product subcomponent) {
-		subcomponents.addLast(subcomponent);
-	}
+		if(subcomponents == null){
+			subcomponents=new LinkedList<Product>();
+		}
+			subcomponents.addLast(subcomponent);
+	
+}
 
 	/**
 	 * @return the quantity_id

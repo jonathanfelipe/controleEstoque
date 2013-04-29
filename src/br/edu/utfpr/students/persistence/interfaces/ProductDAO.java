@@ -68,4 +68,7 @@ public interface ProductDAO {
 			throws ClassNotFoundException, SQLException;
 	public LinkedList<Product> selectSubcomponents(int product_id) 
 			throws ClassNotFoundException, SQLException;
+	
+	public int selectQuantity(Product pro);
+	
 }

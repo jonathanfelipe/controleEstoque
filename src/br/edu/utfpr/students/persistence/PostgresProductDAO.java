@@ -66,13 +66,15 @@ class PostgresProductDAO implements ProductDAO {
 				+ "VALUES(?,?);";
 		Connection connection = PostgresDAOFactory.createConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
+		LinkedList<Product> tmp = new LinkedList<Product>();
 		while (!pro.getSubcomponents().isEmpty()) {
 			subcomponent = pro.getSubcomponents().removeFirst();
 			pstmt.setInt(1, pro.getProduct_id());
 			pstmt.setInt(2, subcomponent.getProduct_id());
 			pstmt.executeUpdate();
-
+			tmp.addLast(subcomponent);
 		}
+		pro.setSubcomponents(tmp);
 		pstmt.close();
 		connection.close();
 
@@ -107,6 +109,7 @@ class PostgresProductDAO implements ProductDAO {
 
 	}
 
+	
 	@Override
 	public boolean deleteProduct(Product pro) {
 		throw new UnsupportedOperationException("Not supported yet."); // To
@@ -159,7 +162,7 @@ class PostgresProductDAO implements ProductDAO {
 	@Override
 	public boolean updateQuantityOfProduct(Product pro)
 			throws ClassNotFoundException, SQLException {
-		String sql = "UPDATE quantity SET quantity = ?, cost = ? WHERE quantity_id = ?;";
+		String sql = "UPDATE estoquedb.quantity SET quantity = ?, cost = ? WHERE quantity_id = ?;";
 		Connection connection = PostgresDAOFactory.createConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
 		pstmt.setInt(1, pro.getQuantity());
@@ -195,11 +198,11 @@ class PostgresProductDAO implements ProductDAO {
 			}
 			results.add(prod);
 		}
-		
+		//TODO COST
 		result.close();
 		pstmt.close();
 		connection.close();
-		return null;
+		return results;
 	}
 
 
@@ -223,5 +226,11 @@ public LinkedList<Product> selectSubcomponents(int product_id) throws ClassNotFo
 	connection.close();
 	return subcomponents;
 	
+}
+
+@Override
+public int selectQuantity(Product pro) {
+	// TODO Auto-generated method stub
+	return 0;
 }
 }

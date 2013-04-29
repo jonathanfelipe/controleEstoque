@@ -12,6 +12,14 @@ public class Contact {
 	private String cellphone;
 	private String email;
 
+	
+	public Contact(String telephone, String cellphone, String email) {
+		super();
+		this.telephone = telephone;
+		this.cellphone = cellphone;
+		this.email = email;
+	}
+
 	public Contact() {
 		contact_id = 0;
 		telephone = "";

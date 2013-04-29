@@ -19,6 +19,8 @@ public class Sell {
 	// data: selldate // select totalearn from selled where date between data e
 	// data
 	private int sell_id;
+
+
 	private int client_id;
 	private double total;
 	private double totalCost;
@@ -35,6 +37,16 @@ public class Sell {
 	// relacionando sell_id -> sold_products_id
 	private LinkedList<Product> productList;
 
+	public Sell(int client_id, double total, double totalCost,
+			double totalEarn, Calendar date, LinkedList<Product> productList) {
+		super();
+		this.client_id = client_id;
+		this.total = total;
+		this.totalCost = totalCost;
+		this.totalEarn = totalEarn;
+		this.date = date;
+		this.productList = productList;
+	}
 	public Sell() {
 		super();
 		sell_id = 0;
@@ -139,8 +151,18 @@ public class Sell {
 	public void addProductToList(Product product) {
 		productList.addLast(product);
 	}
+	public void addProductToList(LinkedList<Product> subproducts){
+		LinkedList<Product> backup = new LinkedList<Product>();
+		while(!subproducts.isEmpty()){
+			Product tmp = subproducts.removeLast();
+			productList.addLast(tmp);
+			backup.addLast(tmp);
+		}
+		subproducts = backup;
+	}
 
 	public void remProductFromList(Product product) {
+		//TODO PROCURAR
 		productList.remove(product);
 	}
 

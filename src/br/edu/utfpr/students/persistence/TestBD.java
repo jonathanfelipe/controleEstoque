@@ -3,11 +3,119 @@
  */
 package br.edu.utfpr.students.persistence;
 
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
+import br.edu.utfpr.students.model.Address;
+import br.edu.utfpr.students.model.Client;
+import br.edu.utfpr.students.model.Contact;
+import br.edu.utfpr.students.model.Product;
+import br.edu.utfpr.students.model.Sell;
+import br.edu.utfpr.students.persistence.interfaces.ClientDAO;
+import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
+import br.edu.utfpr.students.persistence.interfaces.SellDAO;
+
 /**
  * @author raphael
  * 
  */
 public class TestBD {
+	
+	public static void main(String args[]){
+		DAOFactory post = DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
+		ProductDAO pdao = post.getProductDAO(); 
+		SellDAO sdao = post.getSellDAO();
+		Product prod = new Product();
+		Sell sell = new Sell();
+		Product sub = new Product();
+		ClientDAO cdao = post.getClientDAO();
+		Client client = new Client();
+	
+		client.setAddr(new Address("1382388","k1s23treet","maria","london","longon","england",566));
+		client.setCont(new Contact("52344","439944","raphaeljh@am.com"));
+		client.setName("Rd132d3");
+		client.setSsn("19233a4599");
+		String datad = "21/11/1989";
+		Date date = null;
+		try {
+			date  = new SimpleDateFormat("dd/MM/yyyy").parse(datad);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		client.setBirthdate(Calendar.getInstance());
+		client.getBirthdate().setTime(date);
+		try {
+			client.setClient_id(cdao.insertClient(client));
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		sub.setName("S2dp33211");
+		sub.setDescription("s69a332dddsue");
+		sub.setQuantity(50);
+		sub.setNeedSubcomponents(false);
+		sub.setCost(5.6);
+		sub.setPrice(10);
+		
+		try {
+			sub.setProduct_id(pdao.insertProduct(sub));
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		//inserir primeiro os subcomponents
+		
+		
+		prod.setCost(200);
+		prod.setName("s8312d999");
+		prod.setDescription("f39dd9");
+		
+		prod.setNeedSubcomponents(true);
+		prod.addSubcomponent(sub);
+		prod.setQuantity(200);
+		prod.setPrice(500);
+		try {
+			prod.setProduct_id(pdao.insertProduct(prod));
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//selecionar produto entao remover
+		prod.setQuantity(50);
+		sub.setQuantity(10);
+		System.out.println(prod.getQuantity());
+		sell.setClient_id(client.getClient_id());
+		sell.setDate(Calendar.getInstance());
+		datad = "28/04/2013";
+		try {
+			date  = new SimpleDateFormat("dd/MM/yyyy").parse(datad);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sell.getDate().setTime(date);
+		sell.addProductToList(prod);
+		sell.addProductToList(prod.getSubcomponents());
+		sell.setTotal(prod.getPrice()*prod.getQuantity());
+		sell.setTotalCost(prod.getCost()*prod.getQuantity());
+		sell.setTotalEarn(sell.getTotal()-sell.getTotalCost());		
+		try {
+			sdao.insertSell(sell);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 
 	/*
 	 * public static void main(String args[]){ DAOFactory post =

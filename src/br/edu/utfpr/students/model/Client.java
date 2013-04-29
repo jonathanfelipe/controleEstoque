@@ -18,6 +18,16 @@ public class Client {
 	private Address addr;
 	private Contact cont;
 
+	public Client(String name, String ssn, Calendar birthdate, Address addr,
+			Contact cont) {
+		super();
+		this.name = name;
+		this.ssn = ssn;
+		this.birthdate = birthdate;
+		this.addr = addr;
+		this.cont = cont;
+	}
+
 	public Client() {
 		super();
 		client_id = 0;
