@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.edu.utfpr.students.persistence;
+/*package br.edu.utfpr.students.persistence;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -23,8 +23,8 @@ import br.edu.utfpr.students.persistence.interfaces.SellDAO;
  * @author raphael
  * 
  */
-public class TestBD {
-	
+//public class TestBD {
+	/*
 	public static void main(String args[]){
 		DAOFactory post = DAOFactory.getDAOFactory(DAOFactory.POSTGRES);
 		ProductDAO pdao = post.getProductDAO(); 
@@ -189,4 +189,4 @@ public class TestBD {
 	 * 
 	 * }
 	 */
-}
+//}

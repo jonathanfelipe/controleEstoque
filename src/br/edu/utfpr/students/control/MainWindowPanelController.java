@@ -11,9 +11,8 @@ import br.edu.utfpr.students.view.MainWindowPanel;
  */
 public class MainWindowPanelController implements ActionListener {
 	private MainWindowPanel view;
+	MainControl mainControl;
 	// alterar se n for necessario
-	@SuppressWarnings("unused")
-	private MainControl mainControl;
 
 	public MainWindowPanelController(MainControl mainControl) {
 		this.mainControl = mainControl;
@@ -23,9 +22,6 @@ public class MainWindowPanelController implements ActionListener {
 
 	public void setUpView() {
 		view = MainControl.getMainWindowView();
-		// modelo view.getBtnOk().addActionListener(this);
-		// view.getBtnOk().setActionCommand("Message");// MESSAGE TO BE PASS
-		// TROUGHT THE ACTIONEVENT
 		view.getBtnCadastrar().addActionListener(this);
 		view.getBtnCadastrar().setActionCommand("cadastrar");
 		view.getBtnAlterar().addActionListener(this);
@@ -41,15 +37,16 @@ public class MainWindowPanelController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		mainControl.changeToWindow(e.getActionCommand());
 		// exemplo
 		// if("Ok".equals(e.getActionCommand())){
 		// System.out.println(e.getActionCommand());
 		// }
-
+/*
 		switch (e.getActionCommand()) {
 		case "cadastrar":
-			System.out.println("CADASTRAREMOS"); // excluir da versao final
-													// (somente para debug)
+			
+			
 			// TODO chamar metodo que lida com cadastro
 			break;
 		case "alterar":
@@ -74,7 +71,7 @@ public class MainWindowPanelController implements ActionListener {
 			// TODO chamar metodo que lida com compra (view/controller) pela
 			// classe maincontrol
 		}
-
+*/
 	}
 
 }
