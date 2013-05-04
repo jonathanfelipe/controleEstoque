@@ -26,58 +26,53 @@ public class MainControl {
 	private static RegisterPanel rp;
 	private static RegisterProductPanel rpp;
 	private static RegisterSupplierPanel rsp;
-	
-	private RegisterPanelController rpc;
 
-	
+	private RegisterPanelController rpc;
+	private MainWindowPanelController mwpc;
 
 	public MainControl() {
 		setUpFrame();
-		MainControl.mainWindowView = getMainWindowView();
-		frame.setContentPane(MainControl.mainWindowView);
-		new MainWindowPanelController(this);
+		getMwpc();
 
 	}
 
 	public void setUpFrame() {
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(new Dimension(880, 640));
+		frame.setSize(new Dimension(800, 660));
 		frame.setVisible(true);
 	}
 
 	public void pack() {
 		frame.pack();
 	}
+
 	public void setContentPane(JPanel panel) {
 		frame.setContentPane(panel);
 	}
 
-
 	public void changeToWindow(String actionCommand) {
+		System.out.println(actionCommand);
 		switch (actionCommand) {
-			case "cadastrar":
-				getRpc();
-				break;
-				
+		case "cadastrar":
+			getRpc();
+			break;
 
 		}
-		pack();
 	}
 
 	public static MainWindowPanel getMainWindowView() {
-		if(mainWindowView == null){
+		if (mainWindowView == null) {
 			mainWindowView = new MainWindowPanel();
 		}
 		return mainWindowView;
 	}
-	
 
 	/**
 	 * @return the rcp
 	 */
 	public static RegisterClientPanel getRcp() {
-		if (rcp == null){
+		if (rcp == null) {
 			rcp = new RegisterClientPanel();
 		}
 		return rcp;
@@ -87,7 +82,7 @@ public class MainControl {
 	 * @return the rp
 	 */
 	public static RegisterPanel getRp() {
-		if(rp == null){
+		if (rp == null) {
 			rp = new RegisterPanel();
 		}
 		return rp;
@@ -97,7 +92,7 @@ public class MainControl {
 	 * @return the rpp
 	 */
 	public static RegisterProductPanel getRpp() {
-		if(rpp == null){
+		if (rpp == null) {
 			rpp = new RegisterProductPanel();
 		}
 		return rpp;
@@ -107,23 +102,36 @@ public class MainControl {
 	 * @return the rsp
 	 */
 	public static RegisterSupplierPanel getRsp() {
-		if(rsp == null){
+		if (rsp == null) {
 			rsp = new RegisterSupplierPanel();
 		}
-			
+
 		return rsp;
 	}
 
-
 	/**
-	 * @param mainControl 
+	 * @param mainControl
 	 * @return the rpc
 	 */
 	public RegisterPanelController getRpc() {
-		if(rpc == null){
+		if (rpc == null) {
 			rpc = new RegisterPanelController(this);
+		} else {
+			setContentPane(rpc.getView());
 		}
 		return rpc;
+	}
+
+	/**
+	 * @return the mwp
+	 */
+	public MainWindowPanelController getMwpc() {
+		if (mwpc == null) {
+			mwpc = new MainWindowPanelController(this);
+		} else {
+			setContentPane(mwpc.getView());
+		}
+		return mwpc;
 	}
 
 }

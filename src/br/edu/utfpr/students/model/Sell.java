@@ -20,7 +20,6 @@ public class Sell {
 	// data
 	private int sell_id;
 
-
 	private int client_id;
 	private double total;
 	private double totalCost;
@@ -47,6 +46,7 @@ public class Sell {
 		this.date = date;
 		this.productList = productList;
 	}
+
 	public Sell() {
 		super();
 		sell_id = 0;
@@ -151,9 +151,10 @@ public class Sell {
 	public void addProductToList(Product product) {
 		productList.addLast(product);
 	}
-	public void addProductToList(LinkedList<Product> subproducts){
+
+	public void addProductToList(LinkedList<Product> subproducts) {
 		LinkedList<Product> backup = new LinkedList<Product>();
-		while(!subproducts.isEmpty()){
+		while (!subproducts.isEmpty()) {
 			Product tmp = subproducts.removeLast();
 			productList.addLast(tmp);
 			backup.addLast(tmp);
@@ -162,7 +163,7 @@ public class Sell {
 	}
 
 	public void remProductFromList(Product product) {
-		//TODO PROCURAR
+		// TODO PROCURAR
 		productList.remove(product);
 	}
 

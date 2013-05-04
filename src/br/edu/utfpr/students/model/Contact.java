@@ -12,7 +12,6 @@ public class Contact {
 	private String cellphone;
 	private String email;
 
-	
 	public Contact(String telephone, String cellphone, String email) {
 		super();
 		this.telephone = telephone;

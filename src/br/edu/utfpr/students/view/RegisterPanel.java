@@ -17,7 +17,6 @@ public class RegisterPanel extends JPanel {
 	public RegisterPanel() {
 		setSize(WIDTH, HEIGHT);
 		setLayout(null);
-
 		tabbedPane = new JTabbedPane(SwingConstants.TOP);
 		tabbedPane.setBounds(0, 0, 800, 634);
 		add(tabbedPane);

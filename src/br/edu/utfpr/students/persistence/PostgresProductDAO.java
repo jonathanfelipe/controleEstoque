@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-
 import br.edu.utfpr.students.model.Product;
 import br.edu.utfpr.students.persistence.interfaces.ProductDAO;
 
@@ -109,7 +108,6 @@ class PostgresProductDAO implements ProductDAO {
 
 	}
 
-	
 	@Override
 	public boolean deleteProduct(Product pro) {
 		throw new UnsupportedOperationException("Not supported yet."); // To
@@ -125,20 +123,21 @@ class PostgresProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public Product findProduct(Product pro) throws ClassNotFoundException, SQLException {
+	public Product findProduct(Product pro) throws ClassNotFoundException,
+			SQLException {
 		String sql = "SELECT * FROM product WHERE product_id = ?";
 		Connection connection = PostgresDAOFactory.createConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
-		pstmt.setInt(1,pro.getProduct_id());
+		pstmt.setInt(1, pro.getProduct_id());
 		ResultSet rset = pstmt.executeQuery();
-		
-		if(rset.next()){
+
+		if (rset.next()) {
 			pro.setPrice(rset.getDouble("price"));
 			pro.setName(rset.getString("name"));
 			pro.setDescription(rset.getString("description"));
 			pro.setNeedSubcomponents(rset.getBoolean("subcomponent"));
 		}
-		
+
 		rset.close();
 		pstmt.close();
 		connection.close();
@@ -178,8 +177,9 @@ class PostgresProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public LinkedList<Product> selectProductRS(String whereCondition) throws ClassNotFoundException, SQLException {
-		if(whereCondition == null){
+	public LinkedList<Product> selectProductRS(String whereCondition)
+			throws ClassNotFoundException, SQLException {
+		if (whereCondition == null) {
 			whereCondition = "";
 		}
 		String sql = "SELECT * FROM product ?";
@@ -188,49 +188,49 @@ class PostgresProductDAO implements ProductDAO {
 		ResultSet result = pstmt.executeQuery();
 		LinkedList<Product> results = new LinkedList<Product>();
 		Product prod = new Product();
-		while(result.next()){
+		while (result.next()) {
 			prod.setProduct_id(result.getInt("product_id"));
 			prod.setName(result.getString("name"));
 			prod.setDescription(result.getString("description"));
 			prod.setNeedSubcomponents(result.getBoolean("subcomponent"));
-			if(prod.isNeedSubcomponents()){
+			if (prod.isNeedSubcomponents()) {
 				prod.setSubcomponents(selectSubcomponents(prod.getProduct_id()));
 			}
 			results.add(prod);
 		}
-		//TODO COST
+		// TODO COST
 		result.close();
 		pstmt.close();
 		connection.close();
 		return results;
 	}
 
+	@Override
+	public LinkedList<Product> selectSubcomponents(int product_id)
+			throws ClassNotFoundException, SQLException {
+		String sql = "SELECT component_product_id FROM parts WHERE main_product_id = ?";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1, product_id);
+		ResultSet result = pstmt.executeQuery();
+		LinkedList<Product> subcomponents = new LinkedList<Product>();
+		Product pro = new Product();
+		while (result.next()) {
+			pro.setProduct_id(result.getInt(1));
+			pro = findProduct(pro);
+			subcomponents.addLast(pro);
+		}
 
+		result.close();
+		pstmt.close();
+		connection.close();
+		return subcomponents;
 
-public LinkedList<Product> selectSubcomponents(int product_id) throws ClassNotFoundException, SQLException{
-	String sql = "SELECT component_product_id FROM parts WHERE main_product_id = ?";
-	Connection connection = PostgresDAOFactory.createConnection();
-	PreparedStatement pstmt = connection.prepareStatement(sql);
-	pstmt.setInt(1, product_id);
-	ResultSet result = pstmt.executeQuery();
-	LinkedList<Product> subcomponents = new LinkedList<Product>();
-	Product pro = new Product();
-	while(result.next()){
-		pro.setProduct_id(result.getInt(1));
-		pro = findProduct(pro);
-		subcomponents.addLast(pro);
 	}
-	
-	result.close();
-	pstmt.close();
-	connection.close();
-	return subcomponents;
-	
-}
 
-@Override
-public int selectQuantity(Product pro) {
-	// TODO Auto-generated method stub
-	return 0;
-}
+	@Override
+	public int selectQuantity(Product pro) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

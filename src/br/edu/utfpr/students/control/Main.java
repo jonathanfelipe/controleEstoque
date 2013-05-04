@@ -1,14 +1,11 @@
-/**
- * 
- */
-package br.edu.utfpr.students.util;
+package br.edu.utfpr.students.control;
 
-/**
- * @author raphael
- *
- */
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 public class Main {
-	public static void main(String[] args) {
+
+	public static void main(String arg[]) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException
@@ -17,6 +14,6 @@ public class Main {
 		}
 
 		new MainControl();
-
 	}
+
 }
