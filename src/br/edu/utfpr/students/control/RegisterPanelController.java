@@ -76,7 +76,7 @@ public class RegisterPanelController implements ActionListener {
 	
 	public void cleanClientView(){
 		MainControl.getRcp().getTextFieldBirthdate().setText("");
-		MainControl.getRcp().getTextFieldCellphone().setText("");
+		MainControl.getRcp().getTextFieldCellPhone().setText("");
 		MainControl.getRcp().getTextFieldCity().setText("");
 		MainControl.getRcp().getTextFieldContact().setText("");
 		MainControl.getRcp().getTextFieldCountry().setText("");
@@ -111,7 +111,7 @@ public class RegisterPanelController implements ActionListener {
 		
 		Contact contact = new Contact();
 		contact.setEmail(MainControl.getRcp().getTextFieldEmail().getText());
-		contact.setCellphone(MainControl.getRcp().getTextFieldCellphone().getText());
+		contact.setCellphone(MainControl.getRcp().getTextFieldCellPhone().getText());
 		contact.setTelephone(MainControl.getRcp().getTextFieldTelephone().getText());
 		client.setCont(contact);
 		Date date = null;
