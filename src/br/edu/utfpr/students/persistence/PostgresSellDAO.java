@@ -9,8 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.sql.RowSet;
+import java.util.Calendar;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Product;
 import br.edu.utfpr.students.model.Sell;
@@ -35,16 +35,15 @@ public class PostgresSellDAO implements SellDAO {
 			SQLException {
 		// TODO VERIFICAR SE A QUANTIDADE SUFICIENTE PARA VENDA SUBPRODUTOS
 		// TODO ADICIONAR TODOS OS SUBPRODUTOS A VENDA
-		String sql = "INSERT INTO estoquedb.sell(total, totalcost, totalprofit, selldate, client_id)"
-				+ "VALUES(?,?,?,?,?);";
+		String sql = "INSERT INTO estoquedb.sell(total, totalcost, selldate, client_id)"
+				+ "VALUES(?,?,?,?);";
 		Connection connection = PostgresDAOFactory.createConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql,
 				Statement.RETURN_GENERATED_KEYS);
 		pstmt.setDouble(1, sell.getTotal());
 		pstmt.setDouble(2, sell.getTotalCost());
-		pstmt.setDouble(3, sell.getTotalEarn());
-		pstmt.setDate(4, new Date(sell.getDate().getTimeInMillis()));
-		pstmt.setInt(5, sell.getClient_id());
+		pstmt.setDate(3, new Date(sell.getDate().getTimeInMillis()));
+		pstmt.setInt(4, sell.getClient_id());
 		int affectedRows = pstmt.executeUpdate();
 		if (affectedRows == 0) {
 			throw new SQLException("Creating address failed, no rows affected.");
@@ -108,9 +107,27 @@ public class PostgresSellDAO implements SellDAO {
 	 * .utfpr.students.model.Sell)
 	 */
 	@Override
-	public boolean deleteSell(Sell sell) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteSell(Sell sell) throws ClassNotFoundException, SQLException {
+		boolean success = false;
+		String sql = "DELETE FROM estoquedb.sell WHERE sell_id = ?;";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1, sell.getSell_id());
+		int affectedRows = pstmt.executeUpdate();
+		if(affectedRows > 0){
+			success = true;
+		}
+		pstmt.close();
+		pstmt = null;
+		sql = "DELETE FROM estoquedb.sold WHERE sell_id = ?;";
+		pstmt = connection.prepareStatement(sql);
+		affectedRows = pstmt.executeUpdate();
+		if(affectedRows <= 0){
+			success = false;
+		}
+		pstmt.close();
+		connection.close();
+		return success;
 	}
 
 	/*
@@ -146,10 +163,46 @@ public class PostgresSellDAO implements SellDAO {
 	 * br.edu.utfpr.students.persistence.interfaces.SellDAO#selectSellRS(br.
 	 * edu.utfpr.students.model.Sell)
 	 */
-	@Override
-	public RowSet selectSellRS(String whereCondition) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public LinkedList<Sell> selectSellRS(String whereCondition) throws ClassNotFoundException, SQLException {
+		LinkedList<Sell> sales = new LinkedList<Sell>();
+		String sql = "SELECT * FROM estoquedb.sell WHERE ?;";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setString(1, whereCondition);
+		ResultSet rset = pstmt.executeQuery();
+		Sell sell; 
+		while(rset.next()){
+			sell = new Sell();
+			sell.setSell_id(rset.getInt("sell_id"));
+			sell.setClient_id(rset.getInt("client_id"));
+			sell.setDate(Calendar.getInstance());
+			sell.getDate().setTime(rset.getDate("selldate"));
+			sell.setTotal(rset.getDouble("total"));
+			sell.setTotalCost(rset.getDouble("totalcost"));
+					
+			String sqlsold = "SELECT product_id, quantity, cost, price FROM estoquedb.sold WHERE sell_id = ?;";
+			PreparedStatement local = connection.prepareStatement(sqlsold);
+			local.setInt(1, sell.getSell_id());
+			ResultSet rlocal = local.executeQuery();
+			Product p;
+			LinkedList<Product> lp = new LinkedList<Product>();
+			while(rlocal.next()){
+				p = new Product();
+				p.setProduct_id(rlocal.getInt("product_id"));
+				p.setQuantity(rlocal.getInt("quantity"));
+				p.setCost(rlocal.getDouble("cost"));
+				p.setPrice(rlocal.getDouble("price"));
+				lp.addLast(p);
+			}
+			rlocal.close();
+			sell.setProductList(lp);
+			sales.addLast(sell);
+		}
+		rset.close();
+		pstmt.close();
+		connection.close();
+		return sales;
 	}
 
 }

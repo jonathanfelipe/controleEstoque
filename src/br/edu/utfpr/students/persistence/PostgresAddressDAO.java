@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Address;
 import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
@@ -51,17 +50,19 @@ class PostgresAddressDAO implements AddressDAO {
 	}
 
 	@Override
-	public boolean deleteAddress(Address address) {
-		throw new UnsupportedOperationException("Not supported yet."); // To
-																		// change
-																		// body
-																		// of
-																		// generated
-																		// methods,
-																		// choose
-																		// Tools
-																		// |
-																		// Templates.
+	public boolean deleteAddress(Address address) throws ClassNotFoundException, SQLException {
+		boolean success = false;
+		String sql = "DELETE FROM estoquedb.address WHERE addr_id = ?;";
+		Connection connection = PostgresDAOFactory.createConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1, address.getAddrs_id());
+		int affectedRows = pstmt.executeUpdate();
+		if(affectedRows > 0){
+			success = true;
+		}
+		pstmt.close();
+		connection.close();
+		return success;
 	}
 
 	@Override
@@ -93,7 +94,7 @@ class PostgresAddressDAO implements AddressDAO {
 	}
 
 	@Override
-	public RowSet selectAddressRS(String whereCondition) {
+	public LinkedList<Address> selectAddressRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

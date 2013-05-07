@@ -23,7 +23,6 @@ public class Sell {
 	private int client_id;
 	private double total;
 	private double totalCost;
-	private double totalEarn;
 	private Calendar date;
 	// tabela separa para ligar id da venda ao id da lista de produtos vendidos
 	// contendo somente informacoes pertimentes para venda
@@ -42,7 +41,6 @@ public class Sell {
 		this.client_id = client_id;
 		this.total = total;
 		this.totalCost = totalCost;
-		this.totalEarn = totalEarn;
 		this.date = date;
 		this.productList = productList;
 	}
@@ -53,25 +51,10 @@ public class Sell {
 		client_id = 0;
 		total = 0.0;
 		totalCost = 0.0;
-		totalEarn = 0.0;
 		date = null;
 		productList = new LinkedList<Product>();
 	}
 
-	/**
-	 * @return the totalEarn
-	 */
-	public double getTotalEarn() {
-		return totalEarn;
-	}
-
-	/**
-	 * @param totalEarn
-	 *            the totalEarn to set
-	 */
-	public void setTotalEarn(double totalEarn) {
-		this.totalEarn = totalEarn;
-	}
 
 	/**
 	 * @return the totalCost

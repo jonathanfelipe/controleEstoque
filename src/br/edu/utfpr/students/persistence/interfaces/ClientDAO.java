@@ -1,8 +1,7 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
 import java.sql.SQLException;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Client;
 
@@ -48,6 +47,6 @@ public interface ClientDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectClientRS(String whereCondition);
+	public LinkedList<Client> selectClientRS(String whereCondition);
 
 }

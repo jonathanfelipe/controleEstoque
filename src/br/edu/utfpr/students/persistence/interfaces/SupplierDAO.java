@@ -5,8 +5,7 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
 import java.sql.SQLException;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Supplier;
 
@@ -52,7 +51,7 @@ public interface SupplierDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectSupplierRS(String whereCondition);
+	public LinkedList<Supplier> selectSupplierRS(String whereCondition);
 
 	public void insertRelationSupplierProduct(int supplier_id, int product_id)
 			throws ClassNotFoundException, SQLException;

@@ -1,8 +1,7 @@
 package br.edu.utfpr.students.persistence.interfaces;
 
 import java.sql.SQLException;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Contact;
 
@@ -26,8 +25,10 @@ public interface ContactDAO {
 	 * 
 	 * @param con
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public boolean deleteContact(Contact con);
+	public boolean deleteContact(Contact con) throws ClassNotFoundException, SQLException;
 
 	/**
 	 * 
@@ -48,5 +49,5 @@ public interface ContactDAO {
 	 * @param condition
 	 * @return
 	 */
-	public RowSet selectContactRS(String whereCondition);
+	public LinkedList<Contact> selectContactRS(String whereCondition);
 }

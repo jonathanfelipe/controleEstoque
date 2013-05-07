@@ -3,7 +3,7 @@
  */
 package br.edu.utfpr.students.persistence.interfaces;
 
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Buy;
 
@@ -21,5 +21,5 @@ public interface BuyDAO {
 
 	public boolean updateBuy(Buy buy);
 
-	public RowSet selectBuyRS(String whereCondition);
+	public LinkedList<Buy> selectBuyRS(String whereCondition);
 }

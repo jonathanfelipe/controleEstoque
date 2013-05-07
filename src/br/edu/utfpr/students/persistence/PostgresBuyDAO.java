@@ -3,7 +3,7 @@
  */
 package br.edu.utfpr.students.persistence;
 
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Buy;
 import br.edu.utfpr.students.persistence.interfaces.BuyDAO;
@@ -74,7 +74,7 @@ public class PostgresBuyDAO implements BuyDAO {
 	 * .utfpr.students.model.Buy)
 	 */
 	@Override
-	public RowSet selectBuyRS(String whereCondition) {
+	public LinkedList<Buy> selectBuyRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

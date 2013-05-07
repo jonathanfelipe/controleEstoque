@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Client;
 import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
@@ -108,7 +107,7 @@ class PostgresClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public RowSet selectClientRS(String whereCondition) {
+	public LinkedList<Client> selectClientRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}

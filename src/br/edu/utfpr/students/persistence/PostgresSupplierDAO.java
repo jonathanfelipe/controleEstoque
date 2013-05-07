@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.sql.RowSet;
+import java.util.LinkedList;
 
 import br.edu.utfpr.students.model.Supplier;
 import br.edu.utfpr.students.persistence.interfaces.AddressDAO;
@@ -78,7 +77,7 @@ class PostgresSupplierDAO implements SupplierDAO {
 
 	@Override
 	public boolean deleteSupplier(Supplier supp) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -95,7 +94,7 @@ class PostgresSupplierDAO implements SupplierDAO {
 	}
 
 	@Override
-	public RowSet selectSupplierRS(String whereCondition) {
+	public LinkedList<Supplier> selectSupplierRS(String whereCondition) {
 		// TODO Auto-generated method stub
 		return null;
 	}
